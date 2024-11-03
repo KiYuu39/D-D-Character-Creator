@@ -1,0 +1,58 @@
+Character Name:
+Level:
+Class:
+Subclass:
+Race:
+Background:
+-----------------------------------------------------------------------------------------------------
+Max HP:
+AC:
+Initiative:
+Speed:
+-----------------------------------------------------------------------------------------------------
+STR:		|DEX:		|CON:		|INT:		|WIS:		|CHA:		
+-----------------------------------------------------------------------------------------------------
+Saving Throws
+[ ] Strength:
+[ ] Dexterity:
+[ ] Constitution:
+[ ] Intelligence:
+[ ] Wisdom:
+[ ] Charisma:
+
+Ability Checks
+[ ] Acrobatics:
+[ ] Animal Handling:
+[ ] Arcana:
+[ ] Athletics:
+[ ] Deception:
+[ ] History:
+[ ] Insight:
+[ ] Intimidation:
+[ ] Investigation:
+[ ] Medicine:
+[ ] Nature:
+[ ] Perception:
+[ ] Performance:
+[ ] Persuasion:
+[ ] Religion:
+[ ] Sleight of Hand:
+[ ] Stealth:
+[ ] Survival:
+-----------------------------------------------------------------------------------------------------
+Spellcasting Ability:
+Spell Save DC:
+Spell Attack Bonus:
+
+Known Cantrips:
+1st:
+2nd:
+3rd:
+4th:
+5th:
+6th:
+7th:
+8th:
+9th:
+
+
