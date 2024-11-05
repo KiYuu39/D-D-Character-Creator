@@ -97,13 +97,33 @@ class Barbarian(): #barbarian class UNFINISHED
         #class features
         #in this case, action surge (if any), class-specific abilities, etc.
 
+def rollStats():
+    rolls = []
+    stats = [0,0,0,0,0,0]
+    for i in range(6):
+        for d6 in range(4):
+            x = random.randint(1,6)
+            #print(x)
+            rolls.append(x)
+        del rolls[rolls.index(min(rolls))]
+        rollSum = sum(rolls)
+        #print(rollSum)
+        stats[i] = rollSum
+        rolls=[]
+
+    return stats
+
 
 
 
 def main():
-    test = Fighter()
+    '''test = Fighter()
     test.setValues()
-    test.printValues()
+    test.printValues()'''
+
+    stats = [0,0,0,0,0,0]
+    stats = rollStats()
+    print(stats)
 
 
 if __name__ == "__main__":
