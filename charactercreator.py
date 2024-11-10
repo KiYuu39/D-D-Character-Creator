@@ -97,6 +97,116 @@ class Barbarian(): #barbarian class UNFINISHED
         #class features
         #in this case, action surge (if any), class-specific abilities, etc.
 
+class Bard(): #bard class UNFINISHED
+
+    def __init__(self, level=1, proficiencyBonus=2):
+        self.level = level
+        self.proficiencyBonus = proficiencyBonus
+        self.bardicDie = 2        
+
+        self.subclass = "none" #bard college
+
+    def setValues(self):
+        valid = False
+        while not valid:
+            self.level = int(input("Level: "))  #get level (must be 1-3)
+            if self.level == 3: #if level = 3, allow break loop & ask for subclass
+                valid = True
+                print("Bard college: ") #aka subclass
+                print("\t- Lore\n\t- Valor")
+                self.archetype = input("Enter bard college: ")
+            elif self.level>3: #if level>3, loop again
+                print("Please enter a number 1-3.")
+            else: #allow break loop
+                valid = True
+
+    def printValues(self):
+        print(self.level)
+        print(self.proficiencyBonus)
+        print(self.bardicDie)
+        print(self.archetype)
+
+    def fileInputLevelClassSubclass(self):
+        print("")
+        #level, class and subclass
+
+    def fileInputFeatures(self):
+        print("")
+        #class features
+        #in this case, action surge (if any), class-specific abilities, etc.
+
+class Cleric(): #cleric class basics done (add subclass specific shit)
+
+    def __init__(self, level=1, proficiencyBonus=2):
+        self.level = level
+        self.proficiencyBonus = proficiencyBonus       
+
+        self.subclass = "none" #domain
+
+    def setValues(self):
+        valid = False
+        while not valid:
+            self.level = int(input("Level: "))  #get level (must be 1-3)
+            if self.level >=1: #if level >=1, allow break loop & ask for subclass
+                valid = True
+                print("Divine domains: ") #aka subclass
+                print("\t- Knowledge\n\t- Life\n\t- Light\n\t- Nature\n\t- Tempest\n\t- Trickery\n\t- War")
+                self.archetype = input("Enter divine domain: ")
+            elif self.level>3: #if level>3, loop again
+                print("Please enter a number 1-3.")
+            else: #allow break loop
+                valid = True
+
+    def printValues(self):
+        print(self.level)
+        print(self.proficiencyBonus)
+        print(self.subclass)
+
+    def fileInputLevelClassSubclass(self):
+        print("")
+        #level, class and subclass
+
+    def fileInputFeatures(self):
+        print("")
+        #class features
+        #in this case, action surge (if any), class-specific abilities, etc.
+
+class Druid(): #druid class UNFINISHED
+
+    def __init__(self, level=1, proficiencyBonus=2):
+        self.level = level
+        self.proficiencyBonus = proficiencyBonus       
+
+        self.subclass = "none"
+
+    def setValues(self):
+        valid = False
+        while not valid:
+            self.level = int(input("Level: "))  #get level (must be 1-3)
+            if self.level >=2: #if level >= 2, allow break loop & ask for subclass
+                valid = True
+                print("Druid circles: ") #aka subclass
+                print("\t- Land\n\t- Moon")
+                self.archetype = input("Enter druid circle: ")
+            elif self.level>3: #if level>3, loop again
+                print("Please enter a number 1-3.")
+            else: #allow break loop
+                valid = True        
+            
+    def printValues(self):
+        print(self.level)
+        print(self.proficiencyBonus)
+        print(self.archetype)
+
+    def fileInputLevelClassSubclass(self):
+        print("")
+        #level, class and subclass
+
+    def fileInputFeatures(self):
+        print("")
+        #class features
+        #in this case, action surge (if any), class-specific abilities, etc.
+
 def rollStats():
     rolls = []
     stats = [0,0,0,0,0,0]
