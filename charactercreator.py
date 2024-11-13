@@ -52,7 +52,7 @@ class Fighter(): #fighter class
         #class features
         #in this case, action surge (if any), class-specific abilities, etc.
 
-class Barbarian(): #barbarian class UNFINISHED
+class Barbarian(): #barbarian class & outline DONE
 
     def __init__(self, level=1, proficiencyBonus=2, rageDamageBonus=2):
         self.level = level
