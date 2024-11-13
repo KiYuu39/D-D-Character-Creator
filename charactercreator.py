@@ -108,7 +108,6 @@ class Barbarian(): #barbarian class & outline DONE
         print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
-        print("")
         #level, class and subclass
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
@@ -142,7 +141,7 @@ class Barbarian(): #barbarian class & outline DONE
             filestring = file.read().rstrip()
         return filestring
 
-class Bard(): #bard class UNFINISHED
+class Bard(): #bard class DONE
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
@@ -172,13 +171,31 @@ class Bard(): #bard class UNFINISHED
         print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
-        print("")
         #level, class and subclass
+        levelfile = open("level.txt","a")
+        levelfile.truncate(0)
+        levelfile.write(f"Level: {self.level}\n")
+        levelfile.write(f"Class: bard\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Subclass: {self.subclass} (bard college)\n")
+        levelfile.close()
+
+        with open("level.txt","r") as file:
+            filestring = file.read().rstrip()
+        return filestring
 
     def fileInputFeatures(self):
-        print("")
-        #class features
-        #in this case, action surge (if any), class-specific abilities, etc.
+        featuresfile = open("features.txt","a")
+        featuresfile.truncate(0)
+        featuresfile.write(f"Bardic die (amount: {self.bardicDie}, d6)\n")
+        if self.level>=2:
+            featuresfile.write("Jack of all trades\nSong of rest (d6)\n")
+        if self.level>=3:
+            featuresfile.write(f"Bard college (subclass): {self.subclass}\nExpertise")#expertise
+        featuresfile.close()
+
+        with open("features.txt","r") as file:
+            filestring = file.read().rstrip()
+        return filestring
 
 class Cleric(): #cleric class basics done (add subclass specific shit)
 
