@@ -91,6 +91,16 @@ class Barbarian(): #barbarian class UNFINISHED
     def fileInputLevelClassSubclass(self):
         print("")
         #level, class and subclass
+        levelfile = open("level.txt","a")
+        levelfile.truncate(0)
+        levelfile.write(f"Level: {self.level}\n")
+        levelfile.write(f"Class: barbarian\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Subclass: {self.subclass} (primal path)\n")
+        levelfile.close()
+
+        with open("level.txt","r") as file:
+            filestring = file.read().rstrip()
+        return filestring
 
     def fileInputFeatures(self):
         #print("")
@@ -111,7 +121,7 @@ class Barbarian(): #barbarian class UNFINISHED
 
         with open("features.txt","r") as file:
             filestring = file.read().rstrip()
-        print(filestring)
+        return filestring
 
 class Bard(): #bard class UNFINISHED
 
@@ -253,7 +263,8 @@ def main():
 
     test = Barbarian()
     test.setValues()
-    test.fileInputFeatures()
+    a = test.fileInputFeatures()
+    print(a)
 
 
 if __name__ == "__main__":
