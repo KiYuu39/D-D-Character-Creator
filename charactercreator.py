@@ -93,9 +93,17 @@ class Barbarian(): #barbarian class UNFINISHED
         #level, class and subclass
 
     def fileInputFeatures(self):
-        print("")
+        #print("")
         #class features
         #in this case, action surge (if any), class-specific abilities, etc.
+
+        featuresfile = open("features.txt","a")
+        featuresfile.write("test\ntest\ntest")
+        featuresfile.close()
+
+        with open("features.txt","r") as file:
+            filestring = file.read().rstrip()
+        #print(filestring)
 
 class Bard(): #bard class UNFINISHED
 
@@ -234,6 +242,10 @@ def main():
     stats = [0,0,0,0,0,0]
     stats = rollStats()
     print(stats)
+
+    test = Barbarian()
+    test.setValues()
+    test.fileInputFeatures()
 
 
 if __name__ == "__main__":
