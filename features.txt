@@ -1,3 +1,5 @@
-test
-test
-test
+Rage (rage count: 3)
+Unarmored Defense
+Reckless attack
+Danger sense
+Primal path (subclass): totem warrior

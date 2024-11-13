@@ -71,7 +71,7 @@ class Barbarian(): #barbarian class UNFINISHED
                 valid = True
                 print("Primal paths: ") #aka subclass
                 print("\t- Berserker\n\t- Totem Warrior")
-                self.archetype = input("Enter primal path: ")
+                self.subclass = input("Enter primal path: ")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -98,12 +98,20 @@ class Barbarian(): #barbarian class UNFINISHED
         #in this case, action surge (if any), class-specific abilities, etc.
 
         featuresfile = open("features.txt","a")
-        featuresfile.write("test\ntest\ntest")
+        '''featuresfile.truncate(0)
+        featuresfile.write("test1")
+        featuresfile.write("test2")'''
+        featuresfile.truncate(0)
+        featuresfile.write(f"Rage (rage count: {self.rageCount})\nUnarmored Defense\n")
+        if self.level>=2:
+            featuresfile.write("Reckless attack\nDanger sense\n")
+        if self.level>=3:
+            featuresfile.write(f"Primal path (subclass): {self.subclass}\n")
         featuresfile.close()
 
         with open("features.txt","r") as file:
             filestring = file.read().rstrip()
-        #print(filestring)
+        print(filestring)
 
 class Bard(): #bard class UNFINISHED
 
@@ -250,3 +258,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+'''featuresfile = open("features.txt","a")
+        featuresfile.write("test\ntest\ntest")
+        featuresfile.close()
+
+        with open("features.txt","r") as file:
+            filestring = file.read().rstrip()
+        #print(filestring)'''
