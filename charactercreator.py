@@ -536,11 +536,14 @@ class Rogue(): #rogue class DONE **expertise
             filestring = file.read().rstrip()
         return filestring
 
-class Sorcerer(): #druid class UNFINISHED
+class Sorcerer(): #sorcerer class DONE
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
-        self.proficiencyBonus = proficiencyBonus       
+        self.proficiencyBonus = proficiencyBonus   
+        self.sorceryPoints = 0    
+        self.meta1 = "none"
+        self.meta2 = "none"
 
         self.subclass = "none"
 
@@ -548,11 +551,18 @@ class Sorcerer(): #druid class UNFINISHED
         valid = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=2: #if level >= 2, allow break loop & ask for subclass
+            if self.level>1:
+                self.sorceryPoints = self.level
+            if self.level >=1: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Druid circles: ") #aka subclass
-                print("\t- Land\n\t- Moon")
-                self.subclass = input("Enter druid circle: ")
+                print("Sorcerous origins: ") #aka subclass
+                print("\t- Draconic bloodline\n\t- Wild magic")
+                self.subclass = input("Enter sorcerous origin: ")
+                if self.level>2:
+                    print("Metamagic options: ")
+                    print("\t- Careful spell\n\t- Distant spell\n\t- Empowered spell\n\t- Extended spell\n\t- Heightened spell\n\t- Quickened spell\n\t- Seeking spell\n\t- Subtle spell\n\t- Transmuted spell\n\t- Twinned spell\n")
+                    self.meta1 = input("Enter first metamagic option: ")
+                    self.meta2 = input("Enter second metamagic option: ")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -567,8 +577,8 @@ class Sorcerer(): #druid class UNFINISHED
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: monk\n") #since classes are class-specific, just manual input here
-        levelfile.write(f"Subclass: {self.subclass} (monastic tradition)\n")
+        levelfile.write(f"Class: sorcerer\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Subclass: {self.subclass} (sorcerous origin)\n")
         levelfile.close()
 
         with open("level.txt","r") as file:
@@ -578,22 +588,22 @@ class Sorcerer(): #druid class UNFINISHED
     def fileInputFeatures(self):
         featuresfile = open("features.txt","a")
         featuresfile.truncate(0)
-        featuresfile.write("Unarmored defense\nMartial arts\n")
         if self.level>=2:
-            featuresfile.write(f"Martial arts: d4\nKi points: {self.kiPoints}\nUnarmored Movement +10ft\n")
+            featuresfile.write("Font of magic\n")
         if self.level>=3:
-            featuresfile.write("Deflect missiles\n")
+            featuresfile.write(f"Metamagic: {self.meta1}, {self.meta2}\n")
         featuresfile.close()
 
         with open("features.txt","r") as file:
             filestring = file.read().rstrip()
         return filestring
 
-class Warlock(): #druid class UNFINISHED
+class Warlock(): #warlock class DONE
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
-        self.proficiencyBonus = proficiencyBonus       
+        self.proficiencyBonus = proficiencyBonus     
+        self.pact = "none"  
 
         self.subclass = "none"
 
@@ -601,11 +611,15 @@ class Warlock(): #druid class UNFINISHED
         valid = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=2: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=1: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Druid circles: ") #aka subclass
-                print("\t- Land\n\t- Moon")
-                self.subclass = input("Enter druid circle: ")
+                print("Otherworldly patrons: ") #aka subclass
+                print("\t- Archfey\n\t- Fiend\n\t- Great old one")
+                self.subclass = input("Enter patron: ")
+                if self.level>=3:
+                    print("Pact boons: ")
+                    print("\t- Pact of the Blade\n\t- Pact of the Chain\n\t- Pact of the Tome\n\t- Pact of the Talisman\n")
+                    self.pact = input("Enter pact boon: ")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -620,8 +634,8 @@ class Warlock(): #druid class UNFINISHED
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: monk\n") #since classes are class-specific, just manual input here
-        levelfile.write(f"Subclass: {self.subclass} (monastic tradition)\n")
+        levelfile.write(f"Class: warlock\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Subclass: {self.subclass} (otherworldly patron)\n")
         levelfile.close()
 
         with open("level.txt","r") as file:
@@ -631,18 +645,18 @@ class Warlock(): #druid class UNFINISHED
     def fileInputFeatures(self):
         featuresfile = open("features.txt","a")
         featuresfile.truncate(0)
-        featuresfile.write("Unarmored defense\nMartial arts\n")
+        featuresfile.write("Pact magic\n")
         if self.level>=2:
-            featuresfile.write(f"Martial arts: d4\nKi points: {self.kiPoints}\nUnarmored Movement +10ft\n")
+            featuresfile.write("Eldritch invocations\n")
         if self.level>=3:
-            featuresfile.write("Deflect missiles\n")
+            featuresfile.write(f"Pact boon: {self.pact}\n")
         featuresfile.close()
 
         with open("features.txt","r") as file:
             filestring = file.read().rstrip()
         return filestring
 
-class Wizard(): #druid class UNFINISHED
+class Wizard(): #wizard class DONE
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
@@ -656,9 +670,9 @@ class Wizard(): #druid class UNFINISHED
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=2: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Druid circles: ") #aka subclass
-                print("\t- Land\n\t- Moon")
-                self.subclass = input("Enter druid circle: ")
+                print("Arcane traditions: ") #aka subclass
+                print("\t- Abjuration\n\t- Conjuration\n\t- Divination\n\t- Enchantment\n\t- Evocation\n\t- Illusion\n\t- Necromancy\n\t- Transmutation")
+                self.subclass = input("Enter arcane tradition: ")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -673,8 +687,8 @@ class Wizard(): #druid class UNFINISHED
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: monk\n") #since classes are class-specific, just manual input here
-        levelfile.write(f"Subclass: {self.subclass} (monastic tradition)\n")
+        levelfile.write(f"Class: wizard\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Subclass: {self.subclass} (arcane tradition)\n")
         levelfile.close()
 
         with open("level.txt","r") as file:
@@ -684,11 +698,7 @@ class Wizard(): #druid class UNFINISHED
     def fileInputFeatures(self):
         featuresfile = open("features.txt","a")
         featuresfile.truncate(0)
-        featuresfile.write("Unarmored defense\nMartial arts\n")
-        if self.level>=2:
-            featuresfile.write(f"Martial arts: d4\nKi points: {self.kiPoints}\nUnarmored Movement +10ft\n")
-        if self.level>=3:
-            featuresfile.write("Deflect missiles\n")
+        featuresfile.write("Arcane recovery\n")
         featuresfile.close()
 
         with open("features.txt","r") as file:
