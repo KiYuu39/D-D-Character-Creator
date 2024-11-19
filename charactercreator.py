@@ -785,10 +785,77 @@ def main():
                 valid = True
                 ch = Barbarian()
                 ch.setValues()
-                nameblock = ch.fileInputLevelClassSubclass
-                featuresblock = ch.fileInputFeatures
-                print(nameblock)
-                print(featuresblock)
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 2:
+                valid = True
+                ch = Bard()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 3:
+                valid = True
+                ch = Cleric()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 4:
+                valid = True
+                ch = Druid()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 5:
+                valid = True
+                ch = Fighter()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 6:
+                valid = True
+                ch = Monk()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 7:
+                valid = True
+                ch = Paladin()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 8:
+                valid = True
+                ch = Ranger()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 9:
+                valid = True
+                ch = Rogue()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 10:
+                valid = True
+                ch = Sorcerer()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 11:
+                valid = True
+                ch = Warlock()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case 12:
+                valid = True
+                ch = Wizard()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass()
+                featuresblock = ch.fileInputFeatures()
+            case _:
+                print("Please enter a valid number.\n")
+
 
                                                                                                                                               
 
