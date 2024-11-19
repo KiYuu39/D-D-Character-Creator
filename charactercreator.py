@@ -706,6 +706,7 @@ class Wizard(): #wizard class DONE
         return filestring
 
 
+
 def rollStats():
     rolls = []
     stats = [0,0,0,0,0,0]
@@ -722,7 +723,30 @@ def rollStats():
 
     return stats
 
-
+def titlePrint():
+    print("\t\t\t\t\t\t________     __      ________   ")
+    print("\t\t\t\t\t\t`MMMMMMMb.  6MMb     `MMMMMMMb. ")
+    print("\t\t\t\t\t\t MM    `Mb 6M' `b     MM    `Mb ")
+    print("\t\t\t\t\t\t MM     MM 8M  ,9     MM     MM ")
+    print("\t\t\t\t\t\t MM     MM YM.,9  ___ MM     MM ")
+    print("\t\t\t\t\t\t MM     MM  `Mb   `M' MM     MM ")
+    print("\t\t\t\t\t\t MM     MM ,M'MM   P  MM     MM ")
+    print("\t\t\t\t\t\t MM     MM MM  YM. 7  MM     MM ")
+    print("\t\t\t\t\t\t MM     MM MM   `Mb   MM     MM ")
+    print("\t\t\t\t\t\t MM    .M9 YM.   7MM  MM    .M9 ")
+    print("\t\t\t\t\t\t_MMMMMMM9'  YMMM9  YM_MMMMMMM9' ")
+                                
+    print("   ____   ___                                                                         ____                                                    ")
+    print("  6MMMMb/ `MM                                                                        6MMMMb/                                                  ")
+    print(" 8P    YM  MM                                           /                           8P    YM                            /                     ")
+    print("6M      Y  MM  __      ___   ___  __    ___     ____   /M      ____  ___  __       6M      Y ___  __   ____      ___   /M      _____  ___  __ ")
+    print("MM         MM 6MMb   6MMMMb  `MM 6MM  6MMMMb   6MMMMb./MMMMM  6MMMMb `MM 6MM       MM        `MM 6MM  6MMMMb   6MMMMb /MMMMM  6MMMMMb `MM 6MM ")
+    print("MM         MMM9 `Mb 8M'  `Mb  MM69 \" 8M'  `Mb 6M'   Mb MM    6M'  `Mb MM69 \"       MM         MM69 \" 6M'  `Mb 8M'  `Mb MM    6M'   `Mb MM69 \" ")
+    print("MM         MM'   MM     ,oMM  MM'        ,oMM MM    `' MM    MM    MM MM'          MM         MM'    MM    MM     ,oMM MM    MM     MM MM'    ")
+    print("MM         MM    MM ,6MM9'MM  MM     ,6MM9'MM MM       MM    MMMMMMMM MM           MM         MM     MMMMMMMM ,6MM9'MM MM    MM     MM MM   ")  
+    print("YM      6  MM    MM MM'   MM  MM     MM'   MM MM       MM    MM       MM           YM      6  MM     MM       MM'   MM MM    MM     MM MM     ")
+    print(" 8b    d9  MM    MM MM.  ,MM  MM     MM.  ,MM YM.   d9 YM.  ,YM    d9 MM            8b    d9  MM     YM    d9 MM.  ,MM YM.  ,YM.   ,M9 MM     ")
+    print("  YMMMM9  _MM_  _MM_`YMMM9'Yb_MM_    `YMMM9'Yb.YMMMM9   YMMM9 YMMMM9 _MM_            YMMMM9  _MM_     YMMMM9  `YMMM9'Yb.YMMM9 YMMMMM9 _MM_    \n\n\n")
 
 
 def main():
@@ -734,13 +758,40 @@ def main():
     stats = rollStats()
     print(stats)
 
-    test = Barbarian()
-    test.setValues()
-    a = test.fileInputFeatures()
-    print(a)
-
     #input for class; based on class certain stats will change
     #similar for race
+
+    titlePrint()
+
+    #get basic info
+    print("Please note: if provided a numbered list, please enter corresponding number.\n")
+    name = input("Enter character name: ")
+    print("Backgrounds: ")
+    print("\t- Acolyte\n\t- Charlatan\n\t- Criminal\n\t- Spy\n\t- Entertainer\n\t- Folk hero\n\t- Gladiator\n\t- Guild artisan\n\t- Guild merchant\n\t- Hermit\n\t- Knight\n\t- Noble\n\t- Outlander\n\t- Pirate\n\t- Sage\n\t- Sailor\n\t- Soldier\n\t- Urchin")
+    background = input("Enter background: ")
+
+    #get class
+    valid = False
+    nameblock = ""
+    featuresblock = ""
+        
+    while not valid:
+        print("Classes: ")
+        print("\t1. Barbarian\n\t2. Bard\n\t3. Cleric\n\t4. Druid\n\t5. Fighter\n\t6. Monk\n\t7. Paladin\n\t8. Ranger\n\t9. Rogue\n\t10. Sorcerer\n\t11. Warlock\n\t12. Wizard")
+        num = int(input("Enter class: "))
+
+        match num:
+            case 1:
+                valid = True
+                ch = Barbarian()
+                ch.setValues()
+                nameblock = ch.fileInputLevelClassSubclass
+                featuresblock = ch.fileInputFeatures
+                print(nameblock)
+                print(featuresblock)
+
+                                                                                                                                              
+
 
 
 if __name__ == "__main__":
