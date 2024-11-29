@@ -688,20 +688,104 @@ class Sorcerer(): #sorcerer class DONE
 
     def setValues(self):
         valid = False
+        valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level>1:
                 self.sorceryPoints = self.level
             if self.level >=1: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Sorcerous origins: ") #aka subclass
-                print("\t- Draconic bloodline\n\t- Wild magic")
-                self.subclass = input("Enter sorcerous origin: ")
+                while not valid2:
+                    print("Sorcerous origins: ") #aka subclass
+                    print("\t1. Draconic bloodline\n\t2. Wild magic")
+                    num = input("Enter sorcerous origin: ")
+                    if num=="1":
+                        self.subclass = "Draconic Bloodline"
+                        valid2 = True
+                    elif num=="2":
+                        self.subclass = "Wild Magic"
+                        valid2 = True
+                    else:
+                        print("Please enter valid number.\n")
+                valid2 = False
+                count = 2
                 if self.level>2:
-                    print("Metamagic options: ")
-                    print("\t- Careful spell\n\t- Distant spell\n\t- Empowered spell\n\t- Extended spell\n\t- Heightened spell\n\t- Quickened spell\n\t- Seeking spell\n\t- Subtle spell\n\t- Transmuted spell\n\t- Twinned spell\n")
-                    self.meta1 = input("Enter first metamagic option: ")
-                    self.meta2 = input("Enter second metamagic option: ")
+                    while not valid2:
+                        print("Metamagic options: ")
+                        print("\t1. Careful spell\n\t2. Distant spell\n\t3. Empowered spell\n\t4. Extended spell\n\t5. Heightened spell\n\t6. Quickened spell\n\t7. Seeking spell\n\t8. Subtle spell\n\t9. Transmuted spell\n\t10. Twinned spell\n")
+                        while count>1:
+                            num = input("Enter first metamagic option: ")
+                            match num:
+                                case "1":
+                                    self.meta1 = "Careful spell"
+                                    count-=1
+                                case "2":
+                                    self.meta1 = "Distant spell"
+                                    count-=1
+                                case "3":
+                                    self.meta1 = "Empowered spell"
+                                    count-=1
+                                case "4":
+                                    self.meta1 = "Extended spell"
+                                    count-=1
+                                case "5":
+                                    self.meta1 = "Heightened spell"
+                                    count-=1
+                                case "6":
+                                    self.meta1 = "Quickened spell"
+                                    count-=1
+                                case "7":
+                                    self.meta1 = "Seeking spell"
+                                    count-=1
+                                case "8":
+                                    self.meta1 = "Subtle spell"
+                                    count-=1
+                                case "9":
+                                    self.meta1 = "Transmuted spell"
+                                    count-=1
+                                case "10":
+                                    self.meta1 = "Twinned spell"
+                                    count-=1
+                                case _:
+                                    print("Please enter valid number.\n")
+                        
+                        print("\t1. Careful spell\n\t2. Distant spell\n\t3. Empowered spell\n\t4. Extended spell\n\t5. Heightened spell\n\t6. Quickened spell\n\t7. Seeking spell\n\t8. Subtle spell\n\t9. Transmuted spell\n\t10. Twinned spell\n")
+                        while count>1:
+                            num = input("Enter first metamagic option: ")
+                            match num:
+                                case "1":
+                                    self.meta2 = "Careful spell"
+                                    count-=1
+                                case "2":
+                                    self.meta2 = "Distant spell"
+                                    count-=1
+                                case "3":
+                                    self.meta2 = "Empowered spell"
+                                    count-=1
+                                case "4":
+                                    self.meta2 = "Extended spell"
+                                    count-=1
+                                case "5":
+                                    self.meta2 = "Heightened spell"
+                                    count-=1
+                                case "6":
+                                    self.meta2 = "Quickened spell"
+                                    count-=1
+                                case "7":
+                                    self.meta2 = "Seeking spell"
+                                    count-=1
+                                case "8":
+                                    self.meta2 = "Subtle spell"
+                                    count-=1
+                                case "9":
+                                    self.meta2 = "Transmuted spell"
+                                    count-=1
+                                case "10":
+                                    self.meta2 = "Twinned spell"
+                                    count-=1
+                                case _:
+                                    print("Please enter valid number.\n")
+
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -748,17 +832,48 @@ class Warlock(): #warlock class DONE
 
     def setValues(self):
         valid = False
+        valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=1: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Otherworldly patrons: ") #aka subclass
-                print("\t- Archfey\n\t- Fiend\n\t- Great old one")
-                self.subclass = input("Enter patron: ")
+                while not valid2:
+                    print("Otherworldly patrons: ") #aka subclass
+                    print("\t1. Archfey\n\t2. Fiend\n\t3. Great old one")
+                    num = input("Enter patron: ")
+                    if num=="1":
+                        self.subclass = "Archfey Patron"
+                        valid2 = True
+                    elif num=="2":
+                        self.subclass = "Fiend Patron"
+                        valid2 = True
+                    elif num=="3":
+                        self.subclass = "Great Old One Patron"
+                        valid2 = True
+                    else:
+                        print("Please enter valid number.\n")
                 if self.level>=3:
-                    print("Pact boons: ")
-                    print("\t- Pact of the Blade\n\t- Pact of the Chain\n\t- Pact of the Tome\n\t- Pact of the Talisman\n")
-                    self.pact = input("Enter pact boon: ")
+                    valid2 = False
+                    while not valid2:
+                        print("Pact boons: ")
+                        print("\t1. Pact of the Blade\n\t2. Pact of the Chain\n\t3. Pact of the Tome\n\t4. Pact of the Talisman\n")
+                        num = input("Enter pact boon: ")
+
+                        match num:
+                            case "1":
+                                self.pact = "Pact of the Blade"
+                                valid2 = True
+                            case "2":
+                                self.pact = "Pact of the Chain"
+                                valid2 = True
+                            case "3":
+                                self.pact = "Pact of the Tome"
+                                valid2 = True
+                            case "4":
+                                self.pact = "Pact of the Talisman"
+                                valid2 = True
+                            case _:
+                                print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -805,13 +920,42 @@ class Wizard(): #wizard class DONE
 
     def setValues(self):
         valid = False
+        valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=2: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Arcane traditions: ") #aka subclass
-                print("\t- Abjuration\n\t- Conjuration\n\t- Divination\n\t- Enchantment\n\t- Evocation\n\t- Illusion\n\t- Necromancy\n\t- Transmutation")
-                self.subclass = input("Enter arcane tradition: ")
+                while not valid2:
+                    print("Arcane traditions: ") #aka subclass
+                    print("\t1. Abjuration\n\t2. Conjuration\n\t3. Divination\n\t4. Enchantment\n\t5. Evocation\n\t6. Illusion\n\t7. Necromancy\n\t8. Transmutation")
+                    num = input("Enter arcane tradition: ")
+                    match num:
+                        case "1":
+                            self.subclass = "Abjuration"
+                            valid2 = True 
+                        case "2":
+                            self.subclass = "Conjuration"
+                            valid2 = True 
+                        case "3":
+                            self.sublcass = "Divination"
+                            valid2 = True
+                        case "4":
+                            self.subclass = "Enchantment"
+                            valid2 = True
+                        case "5":
+                            self.subclass = "Evocation"
+                            valid2 = True 
+                        case "6":
+                            self.subclass = "Illusion"
+                            valid2 = True 
+                        case "7":
+                            self.subclass = "Necromancy"
+                            valid2 = True
+                        case "8":
+                            self.subclass = "Transmutation"
+                            valid2 = True
+                        case _:
+                            print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
