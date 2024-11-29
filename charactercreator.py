@@ -12,13 +12,29 @@ class Fighter(): #fighter class
 
     def setValues(self):
         valid = False
+        valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level == 3: #if level = 3, allow break loop & ask for archetype
                 valid = True
                 print("Archetypes: ") #aka subclass
-                print("\t- Battle Master\n\t- Champion\n\t- Eldritch Knight")
-                self.archetype = input("Enter archetype: ")
+                print("\t1. Battle Master\n\t2. Champion\n\t3. Eldritch Knight")
+                while not valid_a:
+                    num = input("Enter archetype: ")
+                    match num:
+                        case "1":
+                            self.archetype = "Battle Master"
+                            valid_a = True
+                        case "2":
+                            self.archetype = "Champion"
+                            valid_a = True
+                        case "3":
+                            self.archetype = "Eldritch Knight"
+                            valid_a = True
+                        case _:
+                            print("Please enter a valid number.\n")
+
+                
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -30,7 +46,7 @@ class Fighter(): #fighter class
             if answer == 'Q' or answer == 'q':
                 print("Fighting Styles:")
                 print("\t- archery\n\t- defense\n\t- dueling\n\t- great weapon fighting\n\t- protection\n\t- two-weapon fighting")
-
+                
             else:
                 self.fightingStyle1 = answer
                 count-=1
@@ -84,13 +100,23 @@ class Barbarian(): #barbarian class & outline DONE
 
     def setValues(self):
         valid = False
+        valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level == 3: #if level = 3, allow break loop & ask for subclass
                 valid = True
-                print("Primal paths: ") #aka subclass
-                print("\t- Berserker\n\t- Totem Warrior")
-                self.subclass = input("Enter primal path: ")
+                while not valid_a:
+                    print("Primal paths: ") #aka subclass
+                    print("\t1. Berserker\n\t2. Totem Warrior")
+                    answer = input("Enter primal path: ")
+                    if answer == "1":
+                        self.subclass = "Berserker"
+                        valid_a = True
+                    elif answer == "2":
+                        self.subclass = "Totem Warrior"
+                        valid_a = True
+                    else:
+                        print("Enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -152,13 +178,23 @@ class Bard(): #bard class DONE
 
     def setValues(self):
         valid = False
+        valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level == 3: #if level = 3, allow break loop & ask for subclass
                 valid = True
-                print("Bard college: ") #aka subclass
-                print("\t- Lore\n\t- Valor")
-                self.archetype = input("Enter bard college: ")
+                while not valid_a:
+                    print("Bard college: ") #aka subclass
+                    print("\t1. Lore\n\t2. Valor")
+                    num = input("Enter bard college: ")
+                    if num == "1":
+                        self.subclass = "College of Lore"
+                        valid_a = True
+                    elif num=="2":
+                        self.subclass = "College of Valor"
+                        valid_a = True
+                    else:
+                        print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -207,13 +243,39 @@ class Cleric(): #cleric class DONE
 
     def setValues(self):
         valid = False
+        valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=1: #if level >=1, allow break loop & ask for subclass
                 valid = True
-                print("Divine domains: ") #aka subclass
-                print("\t- Knowledge\n\t- Life\n\t- Light\n\t- Nature\n\t- Tempest\n\t- Trickery\n\t- War")
-                self.subclass = input("Enter divine domain: ")
+                while not valid_a:
+                    print("Divine domains: ") #aka subclass
+                    print("\t1. Knowledge\n\t2. Life\n\t3. Light\n\t4. Nature\n\t5. Tempest\n\t6. Trickery\n\t7. War")
+                    num = input("Enter divine domain: ")
+                    match num:
+                        case "1":
+                            self.subclass = "Knowledge Domain"
+                            valid_a = True
+                        case "2":
+                            self.subclass = "Life Domain"
+                            valid_a = True
+                        case "3":
+                            self.subclass = "Light Domain"
+                            valid_a = True
+                        case "4":
+                            self.subclass = "Nature Domain"
+                            valid_a = True
+                        case "5":
+                            self.subclass = "Tempest Domain"
+                            valid_a = True
+                        case "6":
+                            self.subclass = "Trickery Domain"
+                            valid_a = True
+                        case "7":
+                            self.subclass = "War Domain"
+                            valid_a = True
+                        case _:
+                            print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -257,13 +319,23 @@ class Druid(): #druid class DONE
 
     def setValues(self):
         valid = False
+        valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=2: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Druid circles: ") #aka subclass
-                print("\t- Land\n\t- Moon")
-                self.subclass = input("Enter druid circle: ")
+                while not valid_a:
+                    print("Druid circles: ") #aka subclass
+                    print("\t1. Land\n\t2. Moon")
+                    num = input("Enter druid circle: ")
+                    if num=="1":
+                        self.subclass = "Circle of the Land"
+                        valid_a = True
+                    elif num=="2":
+                        self.subclass = "Circle of the Moon"
+                        valid_a = True
+                    else:
+                        print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -309,15 +381,28 @@ class Monk(): #monk class DONE
 
     def setValues(self):
         valid = False
+        valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level>1:
                 self.kiPoints=self.level
             if self.level >=3: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Monastic traditions: ") #aka subclass
-                print("\t- Four Elements\n\t- Open Hand\n\t- Shadow")
-                self.subclass = input("Enter monastic tradition: ")
+                while not valid_a:
+                    print("Monastic traditions: ") #aka subclass
+                    print("\t1. Four Elements\n\t2. Open Hand\n\t3. Shadow")
+                    num = input("Enter monastic tradition: ")
+                    if num=="1":
+                        self.subclass = "Four Elements"
+                        valid_a = True
+                    elif num=="2":
+                        self.subclass = "Open Hand"
+                        valid_a = True
+                    elif num=="3":
+                        self.subclass = "Shadow"
+                        valid_a = True
+                    else:
+                        print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -365,18 +450,58 @@ class Paladin(): #paladin class DONE
 
     def setValues(self):
         valid = False
+        valid_a = False
+        valid_b = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=2: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Fighting styles: ") #aka subclass
-                print("\t- Blessed warrior\n\t- Blind fighting\n\t- Defense\m\t- Dueling\n\t- Great weapon fighting\n\t- Interception\n\t- Protection")
-                self.fightingStyle = input("Enter fighting style: ")
+                while not valid_a:
+                    print("Fighting styles: ") #aka subclass
+                    print("\t1. Blessed warrior\n\t2. Blind fighting\n\t3. Defense\m\t4. Dueling\n\t5. Great weapon fighting\n\t6. Interception\n\t7. Protection")
+                    num = input("Enter fighting style: ")
+
+                    match num:
+                        case "1":
+                            self.fightingStyle = "Blessed Warrior"
+                            valid_a = True
+                        case "2":
+                            self.fightingStyle = "Blind Fighting"
+                            valid_a = True
+                        case "3":
+                            self.fightingStyle = "Defense"
+                            valid_a = True
+                        case "4":
+                            self.fightingStyle = "Dueling"
+                            valid_a = True
+                        case "5":
+                            self.fightingStyle = "Great Weapon Fighting"
+                            valid_a = True
+                        case "6":
+                            self.fightingStyle = "Interception"
+                            valid_a = True
+                        case "7":
+                            self.fightingStyle = "Protection"
+                            valid_a = True
+                        case _:
+                            print("Please enter valid number.\n")
             if self.level >=3:
                 valid = True
-                print("Sacred oaths:")
-                print("\t- Ancients\n\t- Devotion\n\t- Vengeance")
-                self.subclass = input("Enter sacred oath: ")
+                while not valid_b:
+                    print("Sacred oaths:")
+                    print("\t1. Ancients\n\t2. Devotion\n\t3. Vengeance")
+                    num = input("Enter sacred oath: ")
+                    if num=="1":
+                        self.subclass = "Oath of the Ancients"
+                        valid_b = True
+                    elif num=="2":
+                        self.subclass = "Oath of Devotion"
+                        valid_b = True
+                    elif num=="3":
+                        self.subclass = "Oath of Vengeance"
+                        valid_b = True
+                    else:
+                        print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -413,7 +538,7 @@ class Paladin(): #paladin class DONE
             filestring = file.read().rstrip()
         return filestring
 
-class Ranger(): #ranger class DONE
+class Ranger(): #finish switch cases
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
@@ -495,13 +620,27 @@ class Rogue(): #rogue class DONE **expertise
 
     def setValues(self):
         valid = False
+        valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level >=3: #if level >= 2, allow break loop & ask for subclass
                 valid = True
-                print("Roguish archetypes: ") #aka subclass
-                print("\t- Arcane trickster\n\t- Assassin\n\t- Thief")
-                self.subclass = input("Enter roguish archetype: ")
+                while not valid2:
+                    print("Roguish archetypes: ") #aka subclass
+                    print("\t1. Arcane trickster\n\t2. Assassin\n\t3. Thief")
+                    num = input("Enter roguish archetype: ")
+                    match num:
+                        case "1":
+                            self.subclass = "Arcane Trickster"
+                            valid2 = True
+                        case "2":
+                            self.subclass = "Assassin"
+                            valid2 = True
+                        case "3":
+                            self.subclass = "Thief"
+                            valid2 = True
+                        case _:
+                            print("Please enter valid number.")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
