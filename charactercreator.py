@@ -1041,6 +1041,9 @@ def main():
     stats = rollStats()
     print(stats)
 
+    #default proficiency values
+    proficient = [False,False,False,False,False,False]
+
     #input for class; based on class certain stats will change
     #similar for race
 
@@ -1053,11 +1056,12 @@ def main():
     print("\t- Acolyte\n\t- Charlatan\n\t- Criminal\n\t- Spy\n\t- Entertainer\n\t- Folk hero\n\t- Gladiator\n\t- Guild artisan\n\t- Guild merchant\n\t- Hermit\n\t- Knight\n\t- Noble\n\t- Outlander\n\t- Pirate\n\t- Sage\n\t- Sailor\n\t- Soldier\n\t- Urchin")
     background = input("Enter background: ")
 
-    #get class
+    #get class & text blocks for name info and feature info; add class proficiencies
     valid = False
     nameblock = ""
     featuresblock = ""
-        
+    
+    #add class variable (to access class type outside of this while loop)
     while not valid:
         print("Classes: ")
         print("\t1. Barbarian\n\t2. Bard\n\t3. Cleric\n\t4. Druid\n\t5. Fighter\n\t6. Monk\n\t7. Paladin\n\t8. Ranger\n\t9. Rogue\n\t10. Sorcerer\n\t11. Warlock\n\t12. Wizard")
@@ -1138,6 +1142,12 @@ def main():
                 featuresblock = ch.fileInputFeatures()
             case _:
                 print("Please enter a valid number.\n")
+
+    #default HP/AC calculation
+    #get race (speed as well), inc. subrace as needed
+        #18 substats, make list of ints for the + or - buffs to substats
+
+    #spellcasting stats, if class allows
 
 
                                                                                                                                               
