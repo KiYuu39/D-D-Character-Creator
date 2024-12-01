@@ -1006,6 +1006,10 @@ def rollStats():
 
     return stats
 
+    
+
+
+
 def titlePrint():
     print("\t\t\t\t\t\t________     __      ________   ")
     print("\t\t\t\t\t\t`MMMMMMMb.  6MMb     `MMMMMMMb. ")
@@ -1060,6 +1064,7 @@ def main():
     valid = False
     nameblock = ""
     featuresblock = ""
+    num = 0 #num is class type number
     
     #add class variable (to access class type outside of this while loop)
     while not valid:
@@ -1146,6 +1151,131 @@ def main():
     #default HP/AC calculation
     #get race (speed as well), inc. subrace as needed
         #18 substats, make list of ints for the + or - buffs to substats
+
+    tag = "" #used for specific races
+    race = 0
+    size = "none"
+    speed = 0
+    print("Races: ")
+    print("\t1. Dragonborn\n\t2. Dwarf\n\t3. Elf\n\t4. Gnome\n\t5. Half Elf\n\t6. Halfling\n\t7. Half Orc\n\t8. Human\n\t9. Tiefling")
+    while race>9 or race<1:
+        race = int(input("Enter race: "))
+        if race>9 or race<1:
+            print("Please enter valid number.\n")
+
+    #main access variable initialization
+    speed = 0
+    size = ""
+    
+    #file for all race related features
+    racefile = open("race.txt")
+    racefile.truncate(0)
+
+    #STR DEX CON INT WIS CHA
+    #switch case for all race stats
+    match race:
+        case 1: #dragonborn
+            ancestry = 0
+            stats[0]+=2
+            stats[5]+=1
+            size = "medium"
+            speed = 30
+
+            print("Draconic ancestry colors:")
+            print("\t1. Black\n\t2. Copper\n\t3. Blue\n\t4. Bronze\n\t5. Brass\n\t6. Gold\n\t7. Red\n\t8. Green\n\t9. Silver\n\t10. White")
+            while ancestry<1 or ancestry>10:
+                ancestry = int(input("Enter draconic ancestry: "))
+                if ancestry<1 or ancestry>10:
+                    print("Please enter valid number.\n")
+                elif ancestry==1 or ancestry==2:
+                    element = "acid\tBreath weapon: 5x30ft line, DEX save\nResistance to acid\n"
+                elif ancestry==3 or ancestry==4:
+                    element = "lightning\tBreath weapon: 5x30ft line, DEX save\nResistance to lightning"
+                elif ancestry==5:
+                    element = "fire\tBreath weapon: 5x30ft line, DEX save\nResistance to fire\n"
+                elif ancestry==6 or ancestry==7:
+                    element = "fire\tBreath weapon: 15ft cone, DEX save\nResistance to fire\n"
+                elif ancestry==8:
+                    element = "poison\tBreath weapon: 15ft cone, DEX save\nResistance to poison"
+                elif ancestry==9 or ancestry==10:
+                    element = "cold\tBreath weapon: 15ft cone, CON save\nResistance to cold\n"
+
+            racefile.write(element)
+            racefile.write("Languages: Common, draconic\n")
+
+        case 2: #dwarf
+            stats[2]+=2
+            size = "medium"
+            racefile.write("Speed not reduced by heavy armor\n")
+            racefile.write("Darkvision 60ft\n")
+            racefile.write("Dwarven resilience\nDwarven combat training\nStonecunning\nTool proficiency: Mason's tools\n")
+            racefile.write("Languages: Common, dwarvish\n")
+
+            dtype = 0
+            print("Dwarf types:\n\t1. Hill dwarf\n\t2. Mountain dwarf")
+            while dtype<1 or dtype>2:
+                dtype = int(input("Enter dwarf type: "))
+                if dtype<1 or dtype>2:
+                    print("Please enter valid number.\n")
+                elif dtype==1:
+                    stats[4]+=1
+                    tag = "hill"
+                elif dtype==2:
+                    stats[0]+=2
+                    racefile.write("Proficiency in light & medium armor\n")
+
+        case 3: #elf
+            stats[1]+=2
+            size = "medium"
+            speed = 30
+            racefile.write("Fey ancestry\nTrance\n")
+            #darkvision, language
+
+            etype = 0
+            print("Elf types:\n\t1. Dark elf\n\t2. High elf\n\t3. Wood elf")
+            while etype<1 or dtype>3:
+                etype = int(input("Enter elf type: "))
+                if etype<1 or dtype>3:
+                    print("Please enter valid number.\n")
+                elif etype==1:
+                    stats[5]+=1
+                    racefile.write("Superior darkvision 120ft\n")
+                    racefile.write("Drow magic (dancing lights)\n")
+                    racefile.write("Drow weapon training\n")
+                    racefile.write("Languages: common, elven")
+                elif etype==2:
+                    stats[3]+=1
+                    racefile.write("1 wizard cantrip (INT spellcast ability)\n")
+                    racefile.write("Elf weapon training\n")
+                    racefile.write("Languages: common, elven, additional language of choice\n")
+                elif etype==3:
+                    stats[4]+=1
+                    racefile.write("Elf weapon training\nMask of the wild\n")
+                    speed = 35
+
+        case 4: #gnome
+            print()
+
+        case 5: #half elf
+            print()
+
+        case 6: #halfling
+            print()
+
+        case 7: #half orc
+            print()
+        
+        case 8: #human
+            print()
+
+        case 9: #tiefling
+            print()
+
+
+    
+    
+    
+    racefile.close
 
     #spellcasting stats, if class allows
 
