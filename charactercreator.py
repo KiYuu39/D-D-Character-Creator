@@ -1277,7 +1277,45 @@ def main():
     
     racefile.close
 
-    #spellcasting stats, if class allows
+    #spellcasting
+
+
+    #put everything in a file
+    bigbar = "-----------------------------------------------------------------------------------------------------\n"
+    sheet = open("final_character_sheet.txt")
+    sheet.truncate(0)
+
+    sheet.write("Character name: ")
+    sheet.write(f"{name}\n{nameblock}\nRace: {race}\nBackground: {background}")
+    sheet.write(bigbar)
+
+    #maxHP
+    #AC
+    #initiative
+    sheet.write(f"Speed: {speed}\n")
+    sheet.write(bigbar)
+
+    #STR DEX CON INT WIS CHA
+    sheet.write(f"STR: {stats[0]}\t\t|DEX: {stats[1]}\t\t|CON: {stats[2]}\t\t|INT: {stats[3]}\t\t|WIS: {stats[4]}\t\t|CHA: {stats[5]}\n")
+    sheet.write(bigbar)
+
+    #saving throws
+
+    #ability checks
+    sheet.write(bigbar)
+
+    #spellcasting
+    sheet.write(bigbar)
+
+    #additional features
+    sheet.write(f"{featuresblock}\n")
+        #also race features need to be written
+    
+
+    sheet.close()
+    print("\n\nCharacter sheet complete.\n")
+    print(sheet)
+
 
 
                                                                                                                                               
