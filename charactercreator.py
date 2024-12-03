@@ -1370,7 +1370,7 @@ def main():
     sheet.truncate(0)
 
     sheet.write("Character name: ")
-    sheet.write(f"{name}\n{nameblock}\nRace: {race}\nBackground: {background}")
+    sheet.write(f"{name}\n{nameblock}\nRace: {race}\nBackground: {background}\n")
     sheet.write(bigbar)
 
     #maxHP
