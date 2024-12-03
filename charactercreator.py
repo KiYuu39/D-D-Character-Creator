@@ -713,41 +713,43 @@ class Sorcerer(): #sorcerer class DONE
                     while not valid2:
                         print("Metamagic options: ")
                         print("\t1. Careful spell\n\t2. Distant spell\n\t3. Empowered spell\n\t4. Extended spell\n\t5. Heightened spell\n\t6. Quickened spell\n\t7. Seeking spell\n\t8. Subtle spell\n\t9. Transmuted spell\n\t10. Twinned spell\n")
-                        while count>1:
-                            num = input("Enter first metamagic option: ")
+                        while count>0:
+                            num = int(input("Enter metamagic option: "))
                             match num:
-                                case "1":
+                                case 1:
                                     self.meta1 = "Careful spell"
                                     count-=1
-                                case "2":
+                                case 2:
                                     self.meta1 = "Distant spell"
                                     count-=1
-                                case "3":
+                                case 3:
                                     self.meta1 = "Empowered spell"
                                     count-=1
-                                case "4":
+                                case 4:
                                     self.meta1 = "Extended spell"
                                     count-=1
-                                case "5":
+                                case 5:
                                     self.meta1 = "Heightened spell"
                                     count-=1
-                                case "6":
+                                case 6:
                                     self.meta1 = "Quickened spell"
                                     count-=1
-                                case "7":
+                                case 7:
                                     self.meta1 = "Seeking spell"
                                     count-=1
-                                case "8":
+                                case 8:
                                     self.meta1 = "Subtle spell"
                                     count-=1
-                                case "9":
+                                case 9:
                                     self.meta1 = "Transmuted spell"
                                     count-=1
-                                case "10":
+                                case 10:
                                     self.meta1 = "Twinned spell"
                                     count-=1
                                 case _:
                                     print("Please enter valid number.\n")
+                        if count<1:
+                            valid2=True
                         
                         print("\t1. Careful spell\n\t2. Distant spell\n\t3. Empowered spell\n\t4. Extended spell\n\t5. Heightened spell\n\t6. Quickened spell\n\t7. Seeking spell\n\t8. Subtle spell\n\t9. Transmuted spell\n\t10. Twinned spell\n")
                         while count>1:
@@ -1351,7 +1353,8 @@ def main():
         proflist[7]=True
         proflist[17]=True
     if ch_class==2:
-        
+        print()
+
         
 
 
