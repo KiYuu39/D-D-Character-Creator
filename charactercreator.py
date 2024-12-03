@@ -1235,7 +1235,7 @@ def main():
             print("Elf types:\n\t1. Dark elf\n\t2. High elf\n\t3. Wood elf")
             while etype<1 or dtype>3:
                 etype = int(input("Enter elf type: "))
-                if etype<1 or dtype>3:
+                if etype<1 or etype>3:
                     print("Please enter valid number.\n")
                 elif etype==1:
                     stats[5]+=1
@@ -1252,24 +1252,76 @@ def main():
                     stats[4]+=1
                     racefile.write("Elf weapon training\nMask of the wild\n")
                     speed = 35
-
+        #STR DEX CON INT WIS CHA
         case 4: #gnome
-            print()
+            stats[3]+=2
+            size = "small"
+            speed = 25
+            racefile.write("Darkvision 60ft\nGnome cunning\n")
+            racefile.write("Languages: Common, gnomish\n")
+
+            gtype = 0
+            print("Gnome types:\n\t1. Forest gnome\n\t2. Rock gnome")
+            while gtype<1 or gtype>2:
+                gtype = int(input("Enter gnome type: "))
+                if gtype<1 or gtype>2:
+                    print("Please enter valid number.\n")
+                elif gtype==1:
+                    stats[1]+=1
+                    racefile.write("Natural illusionist (INT)\nSpeak with small beasts\n")
+                elif gtype==2:
+                    stats[2]+=1
+                    racefile.write("Artificer's lore\nTinker (clockwork toy, fire starter, music box)\n")
 
         case 5: #half elf
-            print()
+            stats[5]+=2
+            stats[1]+=1
+            stats[3]+=1
+            size = "medium"
+            speed = 30
+            racefile.write("Darkvision 60ft\nFey ancestry\nLanguages: Common, elven, additional language of choice\n")
+            racefile.write("Half-elf versatility\n")
 
         case 6: #halfling
-            print()
+            stats[1]+=2
+            size = "small"
+            speed = 25
+            racefile.write("Lucky\nBrave\nNimble\nLanguages: Common, halfling\n")
+
+            htype = 0
+            print("Halfling types:\n\t1. Lightfoot halfling\n\t2. Stout halfling")
+            while htype<1 or htype>2:
+                htype = int(input("Enter halfling type: "))
+                if htype<1 or htype>2:
+                    print("Please enter valid number.\n")
+                elif htype==1:
+                    stats[5]+=1
+                    racefile.write("Naturally stealthy\n")
+                elif htype==2:
+                    stats[2]+=1
+                    racefile.write("Stout resilience\n")
 
         case 7: #half orc
-            print()
+            stats[0]+=2
+            stats[2]+=1
+            size = "medium"
+            speed = 30
+            racefile.write("Darkvision 60ft\nRestless endurance\nSavage attacks\nLanguages: Common, orc\m")
+            tag = "orc"
+
         
         case 8: #human
-            print()
+            for i in range(6):
+                stats[i]+=1
+            size = "medium"
+            speed = 30
+            racefile.write("Languages: Common, additional language of choice")
 
         case 9: #tiefling
-            print()
+            stats[5]+=2
+            size = "medium"
+            speed = 30
+            racefile.write("Darkvision 60ft\nHellish resistance\nLanguages: Common, infernal\n")
 
 
     
