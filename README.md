@@ -1,7 +1,5 @@
 # DnD-Character-Creator
 Final project for ANGM2305. Goal is to create a D&amp;D Character Creator that calculates all starter stats.
-
-# DnD Character Creator
 **Repository link:** https://github.com/KiYuu39/DnD-Character-Creator.git
 
 ## Description
