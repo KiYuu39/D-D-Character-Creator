@@ -1046,7 +1046,9 @@ def main():
     print(stats)
 
     #default proficiency values
-    proficient = [False,False,False,False,False,False]
+    #proficient = [False,False,False,False,False,False]
+    savethrows = [False,False,False,False,False,False]
+    proflist = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]
 
     #input for class; based on class certain stats will change
     #similar for race
@@ -1065,6 +1067,7 @@ def main():
     nameblock = ""
     featuresblock = ""
     num = 0 #num is class type number
+    ch_class = 0
     
     #add class variable (to access class type outside of this while loop)
     while not valid:
@@ -1079,72 +1082,84 @@ def main():
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 1
             case 2:
                 valid = True
                 ch = Bard()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 2
             case 3:
                 valid = True
                 ch = Cleric()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 3
             case 4:
                 valid = True
                 ch = Druid()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 4
             case 5:
                 valid = True
                 ch = Fighter()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 5
             case 6:
                 valid = True
                 ch = Monk()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 6
             case 7:
                 valid = True
                 ch = Paladin()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 7
             case 8:
                 valid = True
                 ch = Ranger()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 8
             case 9:
                 valid = True
                 ch = Rogue()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 9
             case 10:
                 valid = True
                 ch = Sorcerer()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 10
             case 11:
                 valid = True
                 ch = Warlock()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 11
             case 12:
                 valid = True
                 ch = Wizard()
                 ch.setValues()
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
+                ch_class = 12
             case _:
                 print("Please enter a valid number.\n")
 
@@ -1323,11 +1338,25 @@ def main():
             speed = 30
             racefile.write("Darkvision 60ft\nHellish resistance\nLanguages: Common, infernal\n")
 
-
-    
-    
-    
     racefile.close
+
+    #proficiencies
+    proffile = open("additional_proficiencies.txt")
+    proffile.truncate(0)
+    #STR DEX CON INT WIS CHA
+    if ch_class==1:
+        savethrows[0]=True
+        savethrows[2]=True
+        proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+        proflist[7]=True
+        proflist[17]=True
+    if ch_class==2:
+        
+        
+
+
+
+
 
     #spellcasting
 
