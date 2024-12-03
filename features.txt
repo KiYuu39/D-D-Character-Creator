@@ -1,2 +1,2 @@
-Font of magic
-Metamagic: Extended spell, none
+Channel divinity (x1)
+Divine domain feature: Trickery Domain domain

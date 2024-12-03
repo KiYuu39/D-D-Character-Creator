@@ -1,1 +1,4 @@
-test test test
+Darkvision 60ft
+Restless endurance
+Savage attacks
+Languages: Common, orc\m

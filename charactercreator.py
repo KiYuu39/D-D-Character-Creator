@@ -1185,7 +1185,7 @@ def main():
     size = ""
     
     #file for all race related features
-    racefile = open("race.txt")
+    racefile = open("race.txt","a")
     racefile.truncate(0)
 
     #STR DEX CON INT WIS CHA
@@ -1343,7 +1343,7 @@ def main():
     racefile.close
 
     #proficiencies
-    proffile = open("additional_proficiencies.txt")
+    proffile = open("additional_proficiencies.txt","a")
     proffile.truncate(0)
     #STR DEX CON INT WIS CHA
     if ch_class==1:
@@ -1366,7 +1366,7 @@ def main():
 
     #put everything in a file
     bigbar = "-----------------------------------------------------------------------------------------------------\n"
-    sheet = open("final_character_sheet.txt")
+    sheet = open("final_character_sheet.txt","a")
     sheet.truncate(0)
 
     sheet.write("Character name: ")
