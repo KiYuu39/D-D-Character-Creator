@@ -10,6 +10,9 @@ class Fighter(): #fighter class
 
         self.archetype = "none"
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         valid_a = False
@@ -98,6 +101,9 @@ class Barbarian(): #barbarian class & outline DONE
 
         self.subclass = "none"
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         valid_a = False
@@ -176,6 +182,9 @@ class Bard(): #bard class DONE
 
         self.subclass = "none" #bard college
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         valid_a = False
@@ -240,6 +249,9 @@ class Cleric(): #cleric class DONE
         self.proficiencyBonus = proficiencyBonus       
 
         self.subclass = "none" #domain
+
+    def getLevel(self):
+        return self.level
 
     def setValues(self):
         valid = False
@@ -317,6 +329,9 @@ class Druid(): #druid class DONE
 
         self.subclass = "none"
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         valid_a = False
@@ -378,6 +393,9 @@ class Monk(): #monk class DONE
         self.kiPoints = 0
 
         self.subclass = "none"
+
+    def getLevel(self):
+        return self.level
 
     def setValues(self):
         valid = False
@@ -447,6 +465,9 @@ class Paladin(): #paladin class DONE
         self.fightingStyle = "none"   
 
         self.subclass = "none"
+
+    def getLevel(self):
+        return self.level
 
     def setValues(self):
         valid = False
@@ -549,6 +570,9 @@ class Ranger(): #finish switch cases
 
         self.subclass = "none"
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         while not valid:
@@ -618,6 +642,9 @@ class Rogue(): #rogue class DONE **expertise
 
         self.subclass = "none"
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         valid2 = False
@@ -685,6 +712,9 @@ class Sorcerer(): #sorcerer class DONE
         self.meta2 = "none"
 
         self.subclass = "none"
+
+    def getLevel(self):
+        return self.level
 
     def setValues(self):
         valid = False
@@ -832,6 +862,9 @@ class Warlock(): #warlock class DONE
 
         self.subclass = "none"
 
+    def getLevel(self):
+        return self.level
+
     def setValues(self):
         valid = False
         valid2 = False
@@ -919,6 +952,9 @@ class Wizard(): #wizard class DONE
         self.proficiencyBonus = proficiencyBonus       
 
         self.subclass = "none"
+
+    def getLevel(self):
+        return self.level
 
     def setValues(self):
         valid = False
@@ -1047,6 +1083,8 @@ def main():
     stats = rollStats()
     print(stats)
 
+    level = 0
+
     #default proficiency values
     #proficient = [False,False,False,False,False,False]
     savethrows = [False,False,False,False,False,False]
@@ -1085,6 +1123,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 1
+                level = ch.getLevel()
             case 2:
                 valid = True
                 ch = Bard()
@@ -1092,6 +1131,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 2
+                level = ch.getLevel()
             case 3:
                 valid = True
                 ch = Cleric()
@@ -1099,6 +1139,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 3
+                level = ch.getLevel()
             case 4:
                 valid = True
                 ch = Druid()
@@ -1106,6 +1147,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 4
+                level = ch.getLevel()
             case 5:
                 valid = True
                 ch = Fighter()
@@ -1113,6 +1155,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 5
+                level = ch.getLevel()
             case 6:
                 valid = True
                 ch = Monk()
@@ -1120,6 +1163,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 6
+                level = ch.getLevel()
             case 7:
                 valid = True
                 ch = Paladin()
@@ -1127,6 +1171,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 7
+                level = ch.getLevel()
             case 8:
                 valid = True
                 ch = Ranger()
@@ -1134,6 +1179,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 8
+                level = ch.getLevel()
             case 9:
                 valid = True
                 ch = Rogue()
@@ -1141,6 +1187,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 9
+                level = ch.getLevel()
             case 10:
                 valid = True
                 ch = Sorcerer()
@@ -1148,6 +1195,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 10
+                level = ch.getLevel()
             case 11:
                 valid = True
                 ch = Warlock()
@@ -1155,6 +1203,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 11
+                level = ch.getLevel()
             case 12:
                 valid = True
                 ch = Wizard()
@@ -1162,6 +1211,7 @@ def main():
                 nameblock = ch.fileInputLevelClassSubclass()
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 12
+                level = ch.getLevel()
             case _:
                 print("Please enter a valid number.\n")
 
@@ -1346,16 +1396,42 @@ def main():
     proffile = open("additional_proficiencies.txt","a")
     proffile.truncate(0)
     #STR DEX CON INT WIS CHA
-    if ch_class==1:
+
+    if ch_class==1: #barbarian
         savethrows[0]=True
         savethrows[2]=True
         proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
         proflist[7]=True
         proflist[17]=True
-    if ch_class==2:
+    elif ch_class==2: #bard
+        savethrows[1]=True
+        savethrows[2]=True
+        proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: three musical instruments of choice\n")
+        proflist[12]==True
+        proflist[13]==True
+        proflist[0]==True
+    elif ch_class==3: #cleric
+        print()
+    elif ch_class==4: #druid
+        print()
+    elif ch_class==5: #fighter
+        print()
+    elif ch_class==6: #monk
+        print()
+    elif ch_class==7: #paladin
+        print()
+    elif ch_class==8: #ranger
+        print()
+    elif ch_class==9: #rogue
+        print()
+    elif ch_class==10: #sorcerer
+        print()
+    elif ch_class==11: #warlock
+        print()
+    else: #wizard
         print()
 
-        
+    proffile.close()
 
 
 
@@ -1388,9 +1464,25 @@ def main():
         elif stats[i]==19:
             convertedstats[i] = 4
         else:
-            convertedstats[i]=5
+            convertedstats[i] = 5
             
-
+    #HP calculation
+    hp=0
+    match ch_class:
+        case 0:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 1:
+            if level==1:
+                hp=12+convertedstats[2]
+            elif level==2:
+                hp=19+(2*convertedstats[2])
+            elif level==3:
+                hp=26+(3*convertedstats[2])
 
 
 
@@ -1405,8 +1497,16 @@ def main():
 
     #maxHP
     #AC
+    ac = 10+convertedstats[1]
+    sheet.write(f"Base AC: {ac}\n")
+
     #initiative
     sheet.write(f"Speed: {speed}\n")
+    sheet.write(f"Size: {size}\n")
+    sheet.write("Initiative: ")
+    sheet.write("{0:+}".format(convertedstats[1]))
+    sheet.write("\n")
+    
     sheet.write(bigbar)
 
     #STR DEX CON INT WIS CHA
