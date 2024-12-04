@@ -1,2 +1,4 @@
-Rage (rage count: 2)
-Unarmored Defense
+Expertise
+Sneak attack
+Thieves' cant
+Cunning action

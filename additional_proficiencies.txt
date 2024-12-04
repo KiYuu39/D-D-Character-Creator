@@ -1,2 +1,3 @@
-Armor proficiencies: light armor, medium armor, shields
-Weapon proficiencies: simple weapons, martial weapons
+Armor proficiencies: light armor
+Weapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords
+Tools: thieves' toolsAdditional tool proficiencies: gaming set, land vehicles

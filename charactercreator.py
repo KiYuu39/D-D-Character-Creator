@@ -1101,10 +1101,48 @@ def main():
     print("Backgrounds: ")
     print("\t1. Acolyte\n\t2. Charlatan\n\t3. Criminal\n\t4. Spy\n\t5. Entertainer\n\t6. Folk hero\n\t7. Gladiator\n\t8. Guild artisan\n\t9. Guild merchant\n\t-10. Hermit\n\t11. Knight\n\t12. Noble\n\t13. Outlander\n\t14. Pirate\n\t15. Sage\n\t16. Sailor\n\t17. Soldier\n\t18.Urchin")
     bkg = 0
+    backgroundString = ""
     while bkg<1 or bkg>18:
         bkg = int(input("Enter background: "))
         if bkg<1 or bkg>18:
             print("Please enter valid number.\n")
+        match bkg:
+            case 1:
+                backgroundString = "Acolyte"
+            case 2:
+                backgroundString = "Charlatan"
+            case 3:
+                backgroundString = "Criminal"
+            case 4:
+                backgroundString = "Spy"
+            case 5:
+                backgroundString = "Entertainer"
+            case 6:
+                backgroundString = "Folk Hero"
+            case 7:
+                backgroundString = "Gladiator"
+            case 8:
+                backgroundString = "Guild Artisan"
+            case 9:
+                backgroundString = "Guild Merchant"
+            case 10:
+                backgroundString = "Hermit"
+            case 11:
+                backgroundString = "Knight"
+            case 12:
+                backgroundString = "Noble"
+            case 13:
+                backgroundString = "Outlander"
+            case 14:
+                backgroundString = "Pirate"
+            case 15:
+                backgroundString = "Sage"
+            case 16:
+                backgroundString = "Sailor"
+            case 17:
+                backgroundString = "Soldier"
+            case 18:
+                backgroundString = "Urchin"
     
     
 
@@ -1117,7 +1155,7 @@ def main():
     num = 0 #num is class type number
     ch_class = 0
     
-    #add class variable (to access class type outside of this while loop)
+    #class-related features outside of class class
     while not valid:
         print("Classes: ")
         print("\t1. Barbarian\n\t2. Bard\n\t3. Cleric\n\t4. Druid\n\t5. Fighter\n\t6. Monk\n\t7. Paladin\n\t8. Ranger\n\t9. Rogue\n\t10. Sorcerer\n\t11. Warlock\n\t12. Wizard")
@@ -1228,7 +1266,7 @@ def main():
         #18 substats, make list of ints for the + or - buffs to substats
 
 
-    #file for all race related features
+    #open file for all race related features
     racefile = open("race.txt","a")
     racefile.truncate(0)
     raceString=""
@@ -1415,8 +1453,8 @@ def main():
     #proficiencies
     proffile = open("additional_proficiencies.txt","a")
     proffile.truncate(0)
-    #STR DEX CON INT WIS CHA
 
+    #saving throw/skill proficiencies per race
     if ch_class==1: #barbarian
         savethrows[0]=True
         savethrows[2]=True
@@ -1563,7 +1601,6 @@ def main():
     with open("additional_proficiencies.txt","r") as x:
         addfeatsblock = x.read().rstrip()
 
-    #background features
     
 
 
@@ -1688,6 +1725,88 @@ def main():
     if tag=="hill":
         hp+=level
 
+    #background features
+    bkgfile = open("other_skills","a")
+    bkgfile.truncate(0)
+
+    num = 0
+    box = ""
+    for i in range(18):
+        num=0
+        if proflist[i]==True:
+            box="[x]"
+            num+=2
+        else:
+            box="[ ]"
+
+        #STR
+        if i==3:
+            num+=convertedstats[0]
+            bkgfile.write(f"{box} Athletics: ")
+            bkgfile.write("{0:+}".format(num))
+            bkgfile.write("\n")
+        #DEX
+        elif i==0 or i==15 or i==16:
+            num+=convertedstats[1]
+            if i==0:
+                bkgfile.write(f"{box} Acrobatics: ")
+            elif i==15:
+                bkgfile.write(f"{box} Sleight of Hand: ")
+            elif i==16:
+                bkgfile.write(f"{box} Stealth: ")
+            bkgfile.write("{0:+}".format(num))
+            bkgfile.write("\n")
+        #no CON based substats
+        #INT
+        elif i==2 or i==5 or i==8 or i==10 or i==14:
+            num+=convertedstats[3]
+            if i==2:
+                bkgfile.write(f"{box} Arcana: ")
+            elif i==5:
+                bkgfile.write(f"{box} History: ")
+            elif i==8:
+                bkgfile.write(f"{box} Investigation: ")
+            elif i==10:
+                bkgfile.write(f"{box} Nature: ")
+            elif i==14:
+                bkgfile.write(f"{box} Religion: ")
+            bkgfile.write("{0:+}".format(num))
+            bkgfile.write("\n")
+        #WIS
+        elif i==1 or i==6 or i==9 or i==11 or i==17:
+            num+=convertedstats[4]
+            if i==1:
+                bkgfile.write(f"{box} Animal Handling: ")
+            elif i==6:
+                bkgfile.write(f"{box} Insight: ")
+            elif i==9:
+                bkgfile.write(f"{box} Medicine: ")
+            elif i==11:
+                bkgfile.write(f"{box} Perception: ")
+            elif i==17:
+                bkgfile.write(f"{box} Survival: ")
+            bkgfile.write("{0:+}".format(num))
+            bkgfile.write("\n")
+        #CHA
+        elif i==4 or i==7 or i==12 or i==13:
+            num+=convertedstats[5]
+            if i==4:
+                bkgfile.write(f"{box} Deception: ")
+            if i==7:
+                bkgfile.write(f"{box} Intimidation: ")
+            if i==12:
+                bkgfile.write(f"{box} Performance: ")
+            if i==13:
+                bkgfile.write(f"{box} Persuasion: ")
+            bkgfile.write("{0:+}".format(num))
+            bkgfile.write("\n")
+
+
+    bkgfile.close()
+    bkgblock=""
+    with open("other_skills.txt","r") as x:
+        bkgblock = x.read().rstrip()
+
     
     
 
@@ -1701,7 +1820,7 @@ def main():
     sheet.truncate(0)
 
     sheet.write("Character name: ")
-    sheet.write(f"{name}\n{nameblock}\nRace: {raceString}\nBackground: {background}\n")
+    sheet.write(f"{name}\n{nameblock}\nRace: {raceString}\nBackground: {backgroundString}\n")
     sheet.write(bigbar)
 
     #maxHP
@@ -1754,6 +1873,8 @@ def main():
                 savestring=box+" Charisma: "+"{0:+}".format(temp)+"\n"
                 sheet.write(savestring)
 
+    #additional proficiencies
+    sheet.write(bkgblock)
 
     #ability checks
     sheet.write(bigbar)

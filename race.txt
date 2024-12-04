@@ -1,1 +1,5 @@
-Languages: Common, additional language of choice
+Darkvision 60ft
+Gnome cunning
+Languages: Common, gnomish
+Artificer's lore
+Tinker (clockwork toy, fire starter, music box)
