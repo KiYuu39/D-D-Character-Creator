@@ -1,3 +1,3 @@
 Level: 3
-Class: cleric
-Subclass: Life Domain (divine domain)
+Class: wizard
+Subclass: Transmutation (arcane tradition)

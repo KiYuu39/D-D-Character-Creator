@@ -1,4 +1,2 @@
-Armor proficiencies: light armor, medium armor, shields
-Weapon proficiencies: all simple weapons
-Additional tool proficiencies: gaming set
-Additional languages: 1
+Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows
+Additional tool proficiencies: disguise kit, forgery kit
