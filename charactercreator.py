@@ -1,5 +1,5 @@
 import random
-import project.py
+from project import *
 
 def rollStats(): #roll 6 main stats using 4d6 method: roll 4d6, drop the lowest of the four
     rolls = []
@@ -380,7 +380,7 @@ def main():
             stats[2]+=1
             size = "medium"
             speed = 30
-            racefile.write("Darkvision 60ft\nRestless endurance\nSavage attacks\nLanguages: Common, orc\m")
+            racefile.write("Darkvision 60ft\nRestless endurance\nSavage attacks\nLanguages: Common, orc\n")
             tag = "orc"
             raceString="Half Orc"
         

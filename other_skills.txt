@@ -1,18 +1,18 @@
 [ ] Acrobatics: +2
 [ ] Animal Handling: +0
-[x] Arcana: +4
-[ ] Athletics: +3
-[x] Deception: +1
-[x] History: +4
-[ ] Insight: +0
-[ ] Intimidation: -1
+[ ] Arcana: +2
+[ ] Athletics: +5
+[ ] Deception: +4
+[ ] History: +2
+[x] Insight: +2
+[x] Intimidation: +6
 [ ] Investigation: +2
 [ ] Medicine: +0
 [ ] Nature: +2
 [ ] Perception: +0
-[ ] Performance: -1
-[ ] Persuasion: -1
-[ ] Religion: +2
-[x] Sleight of Hand: +4
+[ ] Performance: +4
+[ ] Persuasion: +4
+[x] Religion: +4
+[ ] Sleight of Hand: +2
 [ ] Stealth: +2
-[ ] Survival: +0
+[x] Survival: +2

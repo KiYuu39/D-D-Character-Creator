@@ -1,4 +1,4 @@
-Darkvision 60ft
-Restless endurance
-Savage attacks
-Languages: Common, orc\m
+acid	Breath weapon: 5x30ft line, DEX save
+Resistance to acid
+
+Languages: Common, draconic

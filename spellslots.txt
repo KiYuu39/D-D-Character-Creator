@@ -1,4 +1,2 @@
-Known cantrips: 3
+This class does not spellcast.
 
-1st: 4
-2nd: 2

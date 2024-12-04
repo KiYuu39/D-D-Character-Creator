@@ -1,9 +1,9 @@
-Character name: Bob
-Level: 3
-Class: wizard
-Subclass: Transmutation (arcane tradition)
-Race: Half Orc
-Background: Charlatan
+Character name: a
+Level: 1
+Class: barbarian
+Subclass: none (primal path)
+Race: Dragonborn
+Background: Acolyte
 -----------------------------------------------------------------------------------------------------
 Proficiency bonus: +2
 HP: 14
@@ -12,45 +12,45 @@ Speed: 30 ft
 Size: medium
 Initiative: +2
 -----------------------------------------------------------------------------------------------------
-STR: 18	|DEX: 15	|CON: 11	|INT: 15	|WIS: 11	|CHA: 9
+STR: 20	|DEX: 15	|CON: 16	|INT: 16	|WIS: 10	|CHA: 19
 -----------------------------------------------------------------------------------------------------
-[ ] Strength: +3
+[x] Strength: +7
 [ ] Dexterity: +2
-[ ] Constitution: +0
-[x] Intelligence: +4
-[x] Wisdom: +2
-[ ] Charisma: -1
+[x] Constitution: +4
+[ ] Intelligence: +2
+[ ] Wisdom: +0
+[ ] Charisma: +4
 
 [ ] Acrobatics: +2
 [ ] Animal Handling: +0
-[x] Arcana: +4
-[ ] Athletics: +3
-[x] Deception: +1
-[x] History: +4
-[ ] Insight: +0
-[ ] Intimidation: -1
+[ ] Arcana: +2
+[ ] Athletics: +5
+[ ] Deception: +4
+[ ] History: +2
+[x] Insight: +2
+[x] Intimidation: +6
 [ ] Investigation: +2
 [ ] Medicine: +0
 [ ] Nature: +2
 [ ] Perception: +0
-[ ] Performance: -1
-[ ] Persuasion: -1
-[ ] Religion: +2
-[x] Sleight of Hand: +4
+[ ] Performance: +4
+[ ] Persuasion: +4
+[x] Religion: +4
+[ ] Sleight of Hand: +2
 [ ] Stealth: +2
-[ ] Survival: +0
+[x] Survival: +2
 -----------------------------------------------------------------------------------------------------
-Known cantrips: 3
-
-1st: 4
-2nd: 2
+This class does not spellcast.
 -----------------------------------------------------------------------------------------------------
-Arcane recovery
+Rage (rage count: 2)
+Unarmored Defense
 
-Darkvision 60ft
-Restless endurance
-Savage attacks
-Languages: Common, orc\m
+acid	Breath weapon: 5x30ft line, DEX save
+Resistance to acid
 
-Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows
-Additional tool proficiencies: disguise kit, forgery kit
+Languages: Common, draconic
+
+Armor proficiencies: light armor, medium armor, shields
+Weapon proficiencies: simple weapons, martial weapons
+Two additional languages known
+Shelter of the Faithful

@@ -1,2 +1,4 @@
-Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows
-Additional tool proficiencies: disguise kit, forgery kit
+Armor proficiencies: light armor, medium armor, shields
+Weapon proficiencies: simple weapons, martial weapons
+Two additional languages known
+Shelter of the Faithful
