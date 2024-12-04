@@ -1,23 +1,28 @@
-Character name: a
-Level: 2
-Class: rogue
-Subclass: none (roguish archetype)
-Race: 5
-Background: a
+Character name: 1
+Level: 1
+Class: barbarian
+Subclass: none (primal path)
+Race: Human
+Background: 1
 -----------------------------------------------------------------------------------------------------
+HP: 13
+Base AC: 12
 Speed: 30
+Size: medium
+Initiative: +2
 -----------------------------------------------------------------------------------------------------
-STR: 12		|DEX: 13		|CON: 13		|INT: 11		|WIS: 12		|CHA: 11
+STR: 11		|DEX: 16		|CON: 13		|INT: 14		|WIS: 15		|CHA: 14
 -----------------------------------------------------------------------------------------------------
-[ ] Strength: +5
-[ ] Dexterity: +1
-[ ] Constitution: +1
-[ ] Intelligence: +5
-[ ] Wisdom: +5
-[ ] Charisma: +5
+[x] Strength: +7
+[ ] Dexterity: +2
+[x] Constitution: +3
+[ ] Intelligence: +1
+[ ] Wisdom: +2
+[ ] Charisma: +1
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
-Expertise
-Sneak attack
-Thieves' cant
-Cunning action
+Rage (rage count: 2)
+Unarmored Defense
+
+Armor proficiencies: light armor, medium armor, shields
+Weapon proficiencies: simple weapons, martial weapons

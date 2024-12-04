@@ -1,4 +1,2 @@
-Expertise
-Sneak attack
-Thieves' cant
-Cunning action
+Rage (rage count: 2)
+Unarmored Defense

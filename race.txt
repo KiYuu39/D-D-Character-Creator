@@ -1,4 +1,1 @@
-Darkvision 60ft
-Fey ancestry
-Languages: Common, elven, additional language of choice
-Half-elf versatility
+Languages: Common, additional language of choice

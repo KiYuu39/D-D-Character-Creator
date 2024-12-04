@@ -1237,6 +1237,7 @@ def main():
     #file for all race related features
     racefile = open("race.txt","a")
     racefile.truncate(0)
+    raceString=""
 
     #STR DEX CON INT WIS CHA
     #switch case for all race stats
@@ -1247,6 +1248,7 @@ def main():
             stats[5]+=1
             size = "medium"
             speed = 30
+            raceString="Dragonborn"
 
             print("Draconic ancestry colors:")
             print("\t1. Black\n\t2. Copper\n\t3. Blue\n\t4. Bronze\n\t5. Brass\n\t6. Gold\n\t7. Red\n\t8. Green\n\t9. Silver\n\t10. White")
@@ -1268,7 +1270,7 @@ def main():
                     element = "cold\tBreath weapon: 15ft cone, CON save\nResistance to cold\n"
 
             racefile.write(element)
-            racefile.write("Languages: Common, draconic\n")
+            racefile.write("\nLanguages: Common, draconic\n")
 
         case 2: #dwarf
             stats[2]+=2
@@ -1287,9 +1289,11 @@ def main():
                 elif dtype==1:
                     stats[4]+=1
                     tag = "hill"
+                    raceString="Hill Dwarf"
                 elif dtype==2:
                     stats[0]+=2
                     racefile.write("Proficiency in light & medium armor\n")
+                    raceString="Mountain Dwarf"
 
         case 3: #elf
             stats[1]+=2
@@ -1300,7 +1304,7 @@ def main():
 
             etype = 0
             print("Elf types:\n\t1. Dark elf\n\t2. High elf\n\t3. Wood elf")
-            while etype<1 or dtype>3:
+            while etype<1 or etype>3:
                 etype = int(input("Enter elf type: "))
                 if etype<1 or etype>3:
                     print("Please enter valid number.\n")
@@ -1310,15 +1314,18 @@ def main():
                     racefile.write("Drow magic (dancing lights)\n")
                     racefile.write("Drow weapon training\n")
                     racefile.write("Languages: common, elven")
+                    raceString="Dark Elf"
                 elif etype==2:
                     stats[3]+=1
                     racefile.write("1 wizard cantrip (INT spellcast ability)\n")
                     racefile.write("Elf weapon training\n")
                     racefile.write("Languages: common, elven, additional language of choice\n")
+                    raceString="High Elf"
                 elif etype==3:
                     stats[4]+=1
                     racefile.write("Elf weapon training\nMask of the wild\n")
                     speed = 35
+                    raceString="Wood Elf"
         #STR DEX CON INT WIS CHA
         case 4: #gnome
             stats[3]+=2
@@ -1336,9 +1343,11 @@ def main():
                 elif gtype==1:
                     stats[1]+=1
                     racefile.write("Natural illusionist (INT)\nSpeak with small beasts\n")
+                    raceString="Forest Gnome"
                 elif gtype==2:
                     stats[2]+=1
                     racefile.write("Artificer's lore\nTinker (clockwork toy, fire starter, music box)\n")
+                    raceString="Rock Gnome"
 
         case 5: #half elf
             stats[5]+=2
@@ -1364,9 +1373,11 @@ def main():
                 elif htype==1:
                     stats[5]+=1
                     racefile.write("Naturally stealthy\n")
+                    raceString="Lightfoot Halfling"
                 elif htype==2:
                     stats[2]+=1
                     racefile.write("Stout resilience\n")
+                    raceString="Stout Halfling"
 
         case 7: #half orc
             stats[0]+=2
@@ -1375,6 +1386,7 @@ def main():
             speed = 30
             racefile.write("Darkvision 60ft\nRestless endurance\nSavage attacks\nLanguages: Common, orc\m")
             tag = "orc"
+            raceString="Half Orc"
 
         
         case 8: #human
@@ -1383,14 +1395,20 @@ def main():
             size = "medium"
             speed = 30
             racefile.write("Languages: Common, additional language of choice")
+            raceString="Human"
 
         case 9: #tiefling
             stats[5]+=2
             size = "medium"
             speed = 30
             racefile.write("Darkvision 60ft\nHellish resistance\nLanguages: Common, infernal\n")
+            raceString="Tiefling"
 
     racefile.close
+    raceblock=""
+    with open("race.txt","r") as x:
+        raceblock = x.read().rstrip()
+    
 
     #proficiencies
     proffile = open("additional_proficiencies.txt","a")
@@ -1478,6 +1496,9 @@ def main():
         proflist[7]==True
 
     proffile.close()
+    addfeatsblock=""
+    with open("additional_proficiencies.txt","r") as x:
+        addfeatsblock = x.read().rstrip()
 
 
 
@@ -1603,12 +1624,10 @@ def main():
     if tag=="hill":
         hp+=level
 
-    raceblock=""
-    addfeatsblock=""
-    with open("race.txt","r") as file:
-        raceblock = file.read().rstrip()
-    with open("additional_proficiencies.txt","r") as file:
-        addfeatsblock = file.read().rstrip()
+    
+    
+
+    
 
 
 
@@ -1618,10 +1637,11 @@ def main():
     sheet.truncate(0)
 
     sheet.write("Character name: ")
-    sheet.write(f"{name}\n{nameblock}\nRace: {race}\nBackground: {background}\n")
+    sheet.write(f"{name}\n{nameblock}\nRace: {raceString}\nBackground: {background}\n")
     sheet.write(bigbar)
 
     #maxHP
+    sheet.write(f"HP: {hp}\n")
     #AC
     ac = 10+convertedstats[1]
     sheet.write(f"Base AC: {ac}\n")
