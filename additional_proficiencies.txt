@@ -1,4 +1,4 @@
-Armor proficiencies: light armor
-Weapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords
-Tools: three musical instruments of choice
-Additional tool proficiencies: disguise kit, one additional musical instrument
+Armor proficiencies: light armor, medium armor, shields
+Weapon proficiencies: simple weapons, martial weapons
+Two additional languages known
+Shelter of the Faithful

@@ -1,5 +1,4 @@
-Lucky
-Brave
-Nimble
-Languages: Common, halfling
-Stout resilience
+acid	Breath weapon: 5x30ft line, DEX save
+Resistance to acid
+
+Languages: Common, draconic

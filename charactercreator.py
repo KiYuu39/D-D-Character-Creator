@@ -1740,6 +1740,8 @@ def main():
                 spellfile.write("Known cantrips: 3\n\n1st: 3\n")
             elif level==3:
                 spellfile.write("Known cantrips: 3\n\n1st: 4\n2nd: 2\n")
+        case _:
+            spellfile.write("This class does not spellcast.\n")
         
     spellfile.close()
     with open("spellslots.txt","r") as x:
@@ -1766,8 +1768,10 @@ def main():
             convertedstats[i] = 3
         elif stats[i]==19:
             convertedstats[i] = 4
-        else:
+        elif stats[i]==20:
             convertedstats[i] = 5
+        else:
+            convertedstats[i] = 0
             
     #HP calculation======================================================================================================================
     hp=0
@@ -1878,7 +1882,10 @@ def main():
         if i==3:
             num+=convertedstats[0]
             bkgfile.write(f"{box} Athletics: ")
-            bkgfile.write("{0:+}".format(num))
+            if num<0:
+                bkgfile.write("{0:-}".format(num))
+            else:
+                bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #DEX
         elif i==0 or i==15 or i==16:
@@ -1889,7 +1896,10 @@ def main():
                 bkgfile.write(f"{box} Sleight of Hand: ")
             elif i==16:
                 bkgfile.write(f"{box} Stealth: ")
-            bkgfile.write("{0:+}".format(num))
+            if num<0:
+                bkgfile.write("{0:-}".format(num))
+            else:
+                bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #no CON based substats
         #INT
@@ -1905,7 +1915,10 @@ def main():
                 bkgfile.write(f"{box} Nature: ")
             elif i==14:
                 bkgfile.write(f"{box} Religion: ")
-            bkgfile.write("{0:+}".format(num))
+            if num<0:
+                bkgfile.write("{0:-}".format(num))
+            else:
+                bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #WIS
         elif i==1 or i==6 or i==9 or i==11 or i==17:
@@ -1920,20 +1933,26 @@ def main():
                 bkgfile.write(f"{box} Perception: ")
             elif i==17:
                 bkgfile.write(f"{box} Survival: ")
-            bkgfile.write("{0:+}".format(num))
+            if num<0:
+                bkgfile.write("{0:-}".format(num))
+            else:
+                bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #CHA
         elif i==4 or i==7 or i==12 or i==13:
             num+=convertedstats[5]
             if i==4:
                 bkgfile.write(f"{box} Deception: ")
-            if i==7:
+            elif i==7:
                 bkgfile.write(f"{box} Intimidation: ")
-            if i==12:
+            elif i==12:
                 bkgfile.write(f"{box} Performance: ")
-            if i==13:
+            elif i==13:
                 bkgfile.write(f"{box} Persuasion: ")
-            bkgfile.write("{0:+}".format(num))
+            if num<0:
+                bkgfile.write("{0:-}".format(num))
+            else:
+                bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
 
     bkgfile.close()
@@ -1953,6 +1972,9 @@ def main():
     sheet.write("Character name: ")
     sheet.write(f"{name}\n{nameblock}\nRace: {raceString}\nBackground: {backgroundString}\n")
     sheet.write(bigbar)
+
+    #proficiency bonus
+    sheet.write("Proficiency bonus: +2\n")
 
     #maxHP
     sheet.write(f"HP: {hp}\n")
