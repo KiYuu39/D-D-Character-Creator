@@ -580,24 +580,106 @@ class Ranger(): #finish switch cases
             if self.level>=1:
                 valid = True
                 print("Favored enemy types:")
-                print("\t- Aberrations\n\t- Beasts\n\t- Celestials\n\t- Constructs\n\t- Dragons\n\t- Elementals\n\t- Fey\n\t- Fiends\n\t- Giants\n\t- Monstrosities\n\t- Oozes\n\t- Plants\n\t- Undead\n")
-                self.favoredEnemy = input("Enter favored enemy: ")
+                print("\t1. Aberrations\n\t2. Beasts\n\t3. Celestials\n\t4. Constructs\n\t5. Dragons\n\t6. Elementals\n\t7. Fey\n\t8. Fiends\n\t9. Giants\n\t10. Monstrosities\n\t11. Oozes\n\t12. Plants\n\t13. Undead\n")
+
+                num=0
+                while num<1 or num>13:
+                    num = int(input("Enter favored enemy: "))
+                    match num:
+                        case 1:
+                            self.favoredEnemy = "aberrations"
+                        case 2:
+                            self.favoredEnemy = "beasts"
+                        case 3:
+                            self.favoredEnemy = "celestials"
+                        case 4:
+                            self.favoredEnemy = "constructs"
+                        case 5:
+                            self.favoredEnemy = "dragons"
+                        case 6:
+                            self.favoredEnemy = "elementals"
+                        case 7:
+                            self.favoredEnemy = "fey"
+                        case 8:
+                            self.favoredEnemy = "fiends"
+                        case 9:
+                            self.favoredEnemy = "giants"
+                        case 10:
+                            self.favoredEnemy = "monstrosities"
+                        case 11:
+                            self.favoredEnemy = "oozes"
+                        case 12:
+                            self.favoredEnemy = "plants"
+                        case 13:
+                            self.favoredEnemy = "undead"
+                        case _:
+                            print("Please enter valid number.\n")
 
                 print("Favored terrain types:")
-                print("\t- Arctic\n\t- Coast\n\t- Desert\n\t- Forest\n\t- Grassland\n\t- Mountain\n\t- Mountain\n\t- Swamp\n\t- Underdark\n")
-                self.favoredTerrain = input("Enter favored terrain: ")
+                print("\t1. Arctic\n\t2. Coast\n\t3. Desert\n\t4. Forest\n\t5. Grassland\n\t6. Mountain\n\t7. Swamp\n\t8. Underdark\n")
+                
+                num=0
+                while num<1 or num>8:
+                    num = int(input("Enter favored terrain: "))
+                    match num:
+                        case 1:
+                            self.favoredTerrain = "arctic"
+                        case 2:
+                            self.favoredTerrain = "coast"
+                        case 3:
+                            self.favoredTerrain = "desert"
+                        case 4:
+                            self.favoredTerrain = "forest"
+                        case 5:
+                            self.favoredTerrain = "grassland"
+                        case 6:
+                            self.favoredTerrain = "mountain"
+                        case 7:
+                            self.favoredTerrain = "swamp"
+                        case 8:
+                            self.favoredTerrain = "underdark"
+                        case _:
+                            print("Please enter valid number.\n")
 
             if self.level >=2: #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 print("Fighting styles: ")
-                print("\t- Archery\n\t- Blind fighting\n\t- Defense\n\t- Druidic warrior\n\t- Dueling\n\t- Thrown weapon fighting\n\t- Two-weapon fighting")
-                self.fightingStyle = input("Enter fighting style: ")
+                print("\t1. Archery\n\t2. Blind fighting\n\t3. Defense\n\t4. Druidic warrior\n\t5. Dueling\n\t6. Thrown weapon fighting\n\t7. Two-weapon fighting")
+
+                num=0
+                while num<1 or num>7:
+                    num=int(input("Enter fighting style: "))
+                    match num:
+                        case 1:
+                            self.fightingStyle="archery"
+                        case 2:
+                            self.fightingStyle="blind fighting"
+                        case 3:
+                            self.fightingStyle="defense"
+                        case 4:
+                            self.fightingStyle="druidic warrior"
+                        case 5:
+                            self.fightingStyle="dueling"
+                        case 6:
+                            self.fightingStyle="thrown weapon fightong"
+                        case 7:
+                            self.fightingStyle="two-weapon fighting"
 
             if self.level>=3:
                 valid = True
                 print("Ranger conclaves: ")
-                print("\t- Beast master\n\t- Hunter")
-                self.subclass = input("Ranger conclave: ")
+                print("\t1. Beast master\n\t2. Hunter")
+
+                num=0
+                while num<1 or num>2:
+                    num=int(input("Enter ranger conclave: "))
+                    if num==1:
+                        self.subclass="Beast master"
+                    elif num==2:
+                        self.subclass="Hunter"
+                    else:
+                        print("Please enter valid number.\n")
+                    
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
             else: #allow break loop
@@ -634,7 +716,7 @@ class Ranger(): #finish switch cases
             filestring = file.read().rstrip()
         return filestring
 
-class Rogue(): #rogue class DONE **expertise
+class Rogue(): #rogue class DONE
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
