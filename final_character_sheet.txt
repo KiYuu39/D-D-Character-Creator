@@ -1,33 +1,56 @@
-Character name: a
-Level: 1
-Class: barbarian
-Subclass: none (primal path)
-Race: Dragonborn
-Background: Acolyte
+Character name: Jon Snow
+Level: 3
+Class: cleric
+Subclass: Life Domain (divine domain)
+Race: Human
+Background: Noble
 -----------------------------------------------------------------------------------------------------
-HP: 15
-Base AC: 12
+Proficiency bonus: +2
+HP: 21
+Base AC: 10
 Speed: 30 ft
 Size: medium
-Initiative: +2
+Initiative: +0
 -----------------------------------------------------------------------------------------------------
-STR: 16		|DEX: 15		|CON: 17		|INT: 10		|WIS: 10		|CHA: 11
+STR: 9	|DEX: 11	|CON: 13	|INT: 17	|WIS: 12	|CHA: 16
 -----------------------------------------------------------------------------------------------------
-[x] Strength: +4
-[ ] Dexterity: +2
-[x] Constitution: +5
-[ ] Intelligence: +0
-[ ] Wisdom: +0
-[ ] Charisma: +0
------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------
-Rage (rage count: 2)
-Unarmored Defense
-acid	Breath weapon: 5x30ft line, DEX save
-Resistance to acid
+[ ] Strength: -1
+[ ] Dexterity: +0
+[ ] Constitution: +1
+[ ] Intelligence: +3
+[x] Wisdom: +2
+[x] Charisma: +4
 
-Languages: Common, draconic
+[ ] Acrobatics: +0
+[ ] Animal Handling: +0
+[ ] Arcana: +3
+[ ] Athletics: -1
+[ ] Deception: +2
+[x] History: +5
+[ ] Insight: +0
+[ ] Intimidation: +2
+[ ] Investigation: +3
+[x] Medicine: +2
+[ ] Nature: +3
+[ ] Perception: +0
+[ ] Performance: +2
+[x] Persuasion: +4
+[x] Religion: +5
+[ ] Sleight of Hand: +0
+[ ] Stealth: +0
+[ ] Survival: +0
+-----------------------------------------------------------------------------------------------------
+Known cantrips: 3
+
+1st: 4
+2nd: 2
+-----------------------------------------------------------------------------------------------------
+Channel divinity (x1)
+Divine domain feature: Life Domain domain
+
+Languages: Common, additional language of choice
+
 Armor proficiencies: light armor, medium armor, shields
-Weapon proficiencies: simple weapons, martial weapons
-Two additional languages known
-Shelter of the Faithful
+Weapon proficiencies: all simple weapons
+Additional tool proficiencies: gaming set
+Additional languages: 1

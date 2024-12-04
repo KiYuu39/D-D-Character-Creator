@@ -1,4 +1,1 @@
-acid	Breath weapon: 5x30ft line, DEX save
-Resistance to acid
-
-Languages: Common, draconic
+Languages: Common, additional language of choice

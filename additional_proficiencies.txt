@@ -1,4 +1,4 @@
 Armor proficiencies: light armor, medium armor, shields
-Weapon proficiencies: simple weapons, martial weapons
-Two additional languages known
-Shelter of the Faithful
+Weapon proficiencies: all simple weapons
+Additional tool proficiencies: gaming set
+Additional languages: 1

@@ -198,18 +198,11 @@ class Bard(): #bard class DONE
             else:              #allow break loop
                 valid = True
 
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.bardicDie)
-        print(self.archetype)
-
     def fileInputLevelClassSubclass(self):
-        #level, class and subclass
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: bard\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: bard\n")
         levelfile.write(f"Subclass: {self.subclass} (bard college)\n")
         levelfile.close()
 
@@ -282,16 +275,11 @@ class Cleric(): #cleric class DONE
             else:              #allow break loop
                 valid = True
 
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.subclass)
-
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: cleric\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: cleric\n")
         levelfile.write(f"Subclass: {self.subclass} (divine domain)\n")
         levelfile.close()
 
@@ -344,17 +332,12 @@ class Druid(): #druid class DONE
                 print("Please enter a number 1-3.")
             else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: druid\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: druid\n")
         levelfile.write(f"Subclass: {self.subclass} (druid circle)\n")
         levelfile.close()
 
@@ -413,17 +396,12 @@ class Monk(): #monk class DONE
                 print("Please enter a number 1-3.")
             else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: monk\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: monk\n")
         levelfile.write(f"Subclass: {self.subclass} (monastic tradition)\n")
         levelfile.close()
 
@@ -515,11 +493,6 @@ class Paladin(): #paladin class DONE
                 print("Please enter a number 1-3.")
             else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
@@ -671,16 +644,11 @@ class Ranger(): #finish switch cases
             else:              #allow break loop
                 valid = True        
             
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
-
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: ranger\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: ranger\n")
         levelfile.write(f"Subclass: {self.subclass} (ranger conclave)\n")
         levelfile.close()
 
@@ -745,11 +713,6 @@ class Rogue(): #rogue class DONE
                 print("Please enter a number 1-3.")
             else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
@@ -796,7 +759,7 @@ class Sorcerer(): #sorcerer class DONE
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level>1:
                 self.sorceryPoints = self.level
-            if self.level >=1: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=1:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid2:
                     print("Sorcerous origins: ") #aka subclass
@@ -893,19 +856,14 @@ class Sorcerer(): #sorcerer class DONE
 
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: sorcerer\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: sorcerer\n")
         levelfile.write(f"Subclass: {self.subclass} (sorcerous origin)\n")
         levelfile.close()
 
@@ -943,7 +901,7 @@ class Warlock(): #warlock class DONE
         valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=1: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=1:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid2:
                     print("Otherworldly patrons: ") #aka subclass
@@ -984,19 +942,14 @@ class Warlock(): #warlock class DONE
                                 print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: warlock\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: warlock\n")
         levelfile.write(f"Subclass: {self.subclass} (otherworldly patron)\n")
         levelfile.close()
 
@@ -1034,7 +987,7 @@ class Wizard(): #wizard class DONE
         valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=2: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=2:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid2:
                     print("Arcane traditions: ") #aka subclass
@@ -1069,19 +1022,14 @@ class Wizard(): #wizard class DONE
                             print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
-            
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: wizard\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: wizard\n")
         levelfile.write(f"Subclass: {self.subclass} (arcane tradition)\n")
         levelfile.close()
 
@@ -1099,27 +1047,19 @@ class Wizard(): #wizard class DONE
             filestring = file.read().rstrip()
         return filestring
 
-
-
-def rollStats():
+def rollStats(): #roll 6 main stats using 4d6 method: roll 4d6, drop the lowest of the four
     rolls = []
     stats = [0,0,0,0,0,0]
     for i in range(6):
         for d6 in range(4):
             x = random.randint(1,6)
-            #print(x)
             rolls.append(x)
+        
         del rolls[rolls.index(min(rolls))]
         rollSum = sum(rolls)
-        #print(rollSum)
         stats[i] = rollSum
         rolls=[]
-
     return stats
-
-    
-
-
 
 def titlePrint():
     print("\t\t\t\t\t\t________     __      ________   ")
@@ -1146,30 +1086,29 @@ def titlePrint():
     print(" 8b    d9  MM    MM MM.  ,MM  MM     MM.  ,MM YM.   d9 YM.  ,YM    d9 MM            8b    d9  MM     YM    d9 MM.  ,MM YM.  ,YM.   ,M9 MM     ")
     print("  YMMMM9  _MM_  _MM_`YMMM9'Yb_MM_    `YMMM9'Yb.YMMMM9   YMMM9 YMMMM9 _MM_            YMMMM9  _MM_     YMMMM9  `YMMM9'Yb.YMMM9 YMMMMM9 _MM_    \n\n\n")
 
-
 def main():
-    #6 main stats
+    #=====6 main stats======================================================================================================================
     stats = [0,0,0,0,0,0]
     stats = rollStats()
-    print(stats)
 
     level = 0
 
-    #default proficiency values
+    #=====default proficiency values======================================================================================================================
     savethrows = [False,False,False,False,False,False]
     proflist = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]
 
+    #=====print title======================================================================================================================
     titlePrint()
 
-    #get name======================================================================================================================
+    #=====get name======================================================================================================================
     print("Please note: if provided a numbered list, please enter corresponding number.\n")
     name = input("Enter character name: ")
     
-    #get background======================================================================================================================
-    print("Backgrounds: ")
+    #=====get background======================================================================================================================
+    print("\nBackgrounds: ")
     print("\t1. Acolyte\n\t2. Charlatan\n\t3. Criminal\n\t4. Spy\n\t5. Entertainer\n\t6. Folk hero\n\t7. Gladiator\n\t8. Guild artisan\n\t9. Guild merchant\n\t10. Hermit\n\t11. Knight\n\t12. Noble\n\t13. Outlander\n\t14. Pirate\n\t15. Sage\n\t16. Sailor\n\t17. Soldier\n\t18.Urchin")
-    bkg = 0
-    backgroundString = ""
+    bkg = 0                 #numerical marker for background
+    backgroundString = ""   #string form of background for output file
     while bkg<1 or bkg>18:
         bkg = int(input("Enter background: "))
         if bkg<1 or bkg>18:
@@ -1212,7 +1151,7 @@ def main():
             case 18:
                 backgroundString = "Urchin"
     
-    #get class, subclass, class features======================================================================================================================
+    #=====get class, subclass, class features======================================================================================================================
     valid = False
     nameblock = ""          #basic info block that goes with character name
     featuresblock = ""      #block of class-related features (added to end of character sheet with other features)
@@ -1220,8 +1159,8 @@ def main():
     ch_class = 0            #class type value
     arcaneTrickster = False #value needed later if player chooses arcane trickster subclass
     
-    while not valid:
-        print("Classes: ")
+    while not valid: #will loop until valid number is entered (1-12)
+        print("\nClasses: ")
         print("\t1. Barbarian\n\t2. Bard\n\t3. Cleric\n\t4. Druid\n\t5. Fighter\n\t6. Monk\n\t7. Paladin\n\t8. Ranger\n\t9. Rogue\n\t10. Sorcerer\n\t11. Warlock\n\t12. Wizard")
         num = int(input("Enter class: "))
 
@@ -1326,20 +1265,20 @@ def main():
             case _:
                 print("Please enter a valid number.\n")
 
-    #get race, race features======================================================================================================================
+    #=====get race, race features======================================================================================================================
     racefile = open("race.txt","a")
     racefile.truncate(0)
-    raceString=""
-    raceblock=""
+    raceString=""           #string form of race for output file
+    raceblock=""            #block of text for race-related features to be added at end of output file
 
-    tag = ""            #used for specific races
-    race = 0            #race type value
+    tag = ""                #used for specific races
+    race = 0                #race type value
     size = "none"
     speed = 0
 
-    print("Races: ")
+    print("\nRaces: ")
     print("\t1. Dragonborn\n\t2. Dwarf\n\t3. Elf\n\t4. Gnome\n\t5. Half Elf\n\t6. Halfling\n\t7. Half Orc\n\t8. Human\n\t9. Tiefling")
-    while race>9 or race<1:
+    while race>9 or race<1: #loops until valid number is entered (1-9)
         race = int(input("Enter race: "))
         if race>9 or race<1:
             print("Please enter valid number.\n")
@@ -1510,7 +1449,7 @@ def main():
     with open("race.txt","r") as x:
         raceblock = x.read().rstrip()
     
-    #proficiencies======================================================================================================================
+    #=====proficiencies======================================================================================================================
     proffile = open("additional_proficiencies.txt","a")
     proffile.truncate(0)
 
@@ -1592,10 +1531,10 @@ def main():
             proflist[2]=True
             proflist[5]=True
 
-    if tag=="orc":
+    if tag=="orc": #from half-orc race
         proflist[7]==True
 
-    #background-related skill proficiencies & features======================================================================================================================
+    #=====background-related skill proficiencies & features======================================================================================================================
     match bkg:
         case 1:
             proflist[6]=True
@@ -1661,7 +1600,7 @@ def main():
     with open("additional_proficiencies.txt","r") as x:
         addfeatsblock = x.read().rstrip()
 
-    #spellcasting======================================================================================================================
+    #=====spellcasting======================================================================================================================
     spellfile = open("spellslots.txt","a")
     spellfile.truncate(0)
 
@@ -1727,16 +1666,15 @@ def main():
             elif level==3:
                 spellfile.write("Known cantrips: 3\n\n1st: 4\n2nd: 2\n")
         case _:
-            spellfile.write("This class does not spellcast.\n")
+            spellfile.write("This class does not spellcast.\n\n")
         
     spellfile.close()
+    spellsblock=""  #block of text for spell-related information
     with open("spellslots.txt","r") as x:
         spellsblock = x.read().rstrip()
 
-
-
-    #convert main 6 stats via stat table method======================================================================================================================
-    convertedstats = [0,0,0,0,0,0]
+    #=====convert main 6 stats via stat table method======================================================================================================================
+    convertedstats = [0,0,0,0,0,0]  #6 main stats will be converted into bonuses (+/-)
     for i in range(6):
         if stats[i]==3:
             convertedstats[i] = -4
@@ -1759,7 +1697,7 @@ def main():
         else:
             convertedstats[i] = 0
             
-    #HP calculation======================================================================================================================
+    #=====HP calculation======================================================================================================================
     hp=0
     match ch_class:
         case 1:
@@ -1847,11 +1785,11 @@ def main():
             elif level==3:
                 hp=14+(3*convertedstats[2])
 
-    if tag=="hill":
+    if tag=="hill": #tag for hill dwarf
         hp+=level
 
-    #additional skills======================================================================================================================
-    bkgfile = open("other_skills","a")
+    #=====additional skills======================================================================================================================
+    bkgfile = open("other_skills.txt","a")
     bkgfile.truncate(0)
 
     num = 0         #temporary number to hold skill bonus
@@ -1874,7 +1812,7 @@ def main():
                 bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #DEX
-        elif i==0 or i==15 or i==16:
+        if i==0 or i==15 or i==16:
             num+=convertedstats[1]
             if i==0:
                 bkgfile.write(f"{box} Acrobatics: ")
@@ -1889,7 +1827,7 @@ def main():
             bkgfile.write("\n")
         #no CON based substats
         #INT
-        elif i==2 or i==5 or i==8 or i==10 or i==14:
+        if i==2 or i==5 or i==8 or i==10 or i==14:
             num+=convertedstats[3]
             if i==2:
                 bkgfile.write(f"{box} Arcana: ")
@@ -1907,7 +1845,7 @@ def main():
                 bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #WIS
-        elif i==1 or i==6 or i==9 or i==11 or i==17:
+        if i==1 or i==6 or i==9 or i==11 or i==17:
             num+=convertedstats[4]
             if i==1:
                 bkgfile.write(f"{box} Animal Handling: ")
@@ -1925,7 +1863,7 @@ def main():
                 bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
         #CHA
-        elif i==4 or i==7 or i==12 or i==13:
+        if i==4 or i==7 or i==12 or i==13:
             num+=convertedstats[5]
             if i==4:
                 bkgfile.write(f"{box} Deception: ")
@@ -1946,11 +1884,7 @@ def main():
     with open("other_skills.txt","r") as x:
         bkgblock = x.read().rstrip()
 
-    
-    
-
-
-    #put everything in a file======================================================================================================================
+    #=====put everything in a file======================================================================================================================
     bigbar = "-----------------------------------------------------------------------------------------------------\n"
     sheet = open("final_character_sheet.txt","a")
     sheet.truncate(0)
@@ -1982,7 +1916,7 @@ def main():
     sheet.write(bigbar)
 
     #6 main stats
-    sheet.write(f"STR: {stats[0]}\t\t|DEX: {stats[1]}\t\t|CON: {stats[2]}\t\t|INT: {stats[3]}\t\t|WIS: {stats[4]}\t\t|CHA: {stats[5]}\n")
+    sheet.write(f"STR: {stats[0]}\t|DEX: {stats[1]}\t|CON: {stats[2]}\t|INT: {stats[3]}\t|WIS: {stats[4]}\t|CHA: {stats[5]}\n")
     sheet.write(bigbar)
 
     #saving throws
@@ -2017,22 +1951,31 @@ def main():
                 sheet.write(savestring)
 
     #additional proficiencies
+    sheet.write("\n")
     sheet.write(bkgblock)
+    sheet.write("\n")
     sheet.write(bigbar)
 
     #spellcasting
     sheet.write(spellsblock)
+    sheet.write("\n")
     sheet.write(bigbar)
 
     #additional features
-    sheet.write(f"{featuresblock}\n")
-    sheet.write(f"{raceblock}\n")
+    sheet.write(f"{featuresblock}\n\n")
+    sheet.write(f"{raceblock}\n\n")
     sheet.write(f"{addfeatsblock}\n")
     
 
     sheet.close()
-    print("\n\nCharacter sheet complete.\n")
-    print(sheet)
+    print("\nCharacter sheet complete.\n\n\n")
+    
+    #display to console
+    with open("final_character_sheet.txt","r") as x:
+        final = x.read().strip()
+    
+    print(final)
+    print("\n\n")
 
 
 
