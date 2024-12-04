@@ -2,60 +2,11 @@
 Final project for ANGM2305. Goal is to create a D&amp;D Character Creator that calculates all starter stats.
 
 **Repository link:** https://github.com/KiYuu39/DnD-Character-Creator.git
+**Youtube link:** https://youtu.be/iPAlf75F6FU
 
 ## Description
-This program will allow someone creating a D&D character to input race, class, etc. to get character stats without doing any math themselves.
-I aim to have calculation of all basic stats (STR, DEX, CON, INT, WIS, CHA as well as max HP and default AC).
+This program will allow someone creating a D&D character to input race, class, etc. to get character stats without doing any math themselves. This program is text-based, and most inputs are numerical based on the displayed menu options. In addition to the main output file, files are used to allow access to information between different functions, classes, etc. I also found that it was the easiest way to organize large groups of information that would be outputted at a later point. I used classes as an organization method, as each D&D class has different class-specific stats and abilities.
 
-## Features
-This program will feature a text-based input-output system. The user will input race, class, level, subclass, etc. and the program will calculate the necessary values. The program will most likely utilize switch cases and either output directly to console or output to a text file.
+sheet_template.txt is the mock-up template I created as a baseline for the output layout. charactercreator.py contains the actual program's code and functions, including main. final_character_sheet.txt is the final output file. project.py includes all classes. All other files are for internal use within the program.
 
-## Challenges
-Due to the number of classes and features in D&D, the complexity will rapidly increase the more features I add on. I also am not the most experienced in working with large amounts of data and having them interact together. I also think that implementing a point-buy system would be difficult.
-
-## Outcomes
-### Minimal Viable Outcome (bare minimum features of this project)
-- calculate STR, DEX, CON, INT, WIS, CHA, max HP, and default HP based on 4d6 system
-- implement only PHB classes/subclasses/races/backgrounds
-- implement only 1st level or 3rd level
-- add/calculate proficiency bonuses
-- spell slot amount indicator & spell stats calculation (if needed depending on class)
-- print 'character sheet' to a file or console
-
-### Ideal Outcome (in addition to Minimal Viable Outcome)
-- add option to calculate stats with pointbuy system
-- add additional classes/subclasses/races within D&D canon (no UA, etc.)
-- add custom background/custom lineage option
-- add rolling for personality traits/ideals/bonds/flaws
-- any level (1-9 inputted for character, up to 20 if really pushing it)
-
-## Milestones
-- Week 1:
-    - decide output style of character sheet
-    - create output file structure
-    - break code down into menu and functions/class functions
-    - create barebone menu structure, allow input of character name, race, class, and level
-- Week 2:
-    - implement classes and subclasses (up to 3rd level only)
-    - implement races
-    - implement 4d6 system
-    - add upper level race features
-    - finalize output style/continually test proper output
-    - input of any character level (1-20)
-- Week 3:
-    - calculation of 6 main stats
-    - calculation of substats
-    - implementation of player choice for race-specific and class-specific substat bonuses
-    - implementation of proficiency bonuses
-    - add upper level class features
-- Week 4:
-    - spell slot/stat implementation if needed for class
-    - add upper level class features (inc. spell slots)
-    - custom lineage/background option
-    - any additional classes/subclasses/races
-    - roll for traits
-- Final Week:
-    - code cleanup/output cleanup
-    - implement any extra features that can be
-    - remove any unfinished/unable to finish features
-    - video demonstration & README.md file
+The scope of this project made it quite daunting! However, I am glad I stuck to it, as I was able to improve on my python coding ability, especially with file handing and complex cross-referencing of variables. Thank you for taking the time to view my project.
