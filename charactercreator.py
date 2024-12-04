@@ -720,12 +720,16 @@ class Rogue(): #rogue class DONE
 
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
-        self.proficiencyBonus = proficiencyBonus       
+        self.proficiencyBonus = proficiencyBonus
+        self.arcaneTrickster = False       
 
         self.subclass = "none"
 
     def getLevel(self):
         return self.level
+    
+    def getArcaneTrickster(self):
+        return self.arcaneTrickster
 
     def setValues(self):
         valid = False
@@ -741,6 +745,7 @@ class Rogue(): #rogue class DONE
                     match num:
                         case "1":
                             self.subclass = "Arcane Trickster"
+                            self.arcaneTrickster = True
                             valid2 = True
                         case "2":
                             self.subclass = "Assassin"
@@ -1223,10 +1228,11 @@ def main():
     
     #get class, subclass, class features======================================================================================================================
     valid = False
-    nameblock = ""      #basic info block that goes with character name
-    featuresblock = ""  #block of class-related features (added to end of character sheet with other features)
-    num = 0             #temporary class type holder
-    ch_class = 0        #class type value
+    nameblock = ""          #basic info block that goes with character name
+    featuresblock = ""      #block of class-related features (added to end of character sheet with other features)
+    num = 0                 #temporary class type holder
+    ch_class = 0            #class type value
+    arcaneTrickster = False #value needed later if player chooses arcane trickster subclass
     
     while not valid:
         print("Classes: ")
@@ -1306,6 +1312,7 @@ def main():
                 featuresblock = ch.fileInputFeatures()
                 ch_class = 9
                 level = ch.getLevel()
+                arcaneTrickster = ch.getArcaneTrickster
             case 10:
                 valid = True
                 ch = Sorcerer()
@@ -1669,8 +1676,74 @@ def main():
         addfeatsblock = x.read().rstrip()
 
     #spellcasting======================================================================================================================
+    spellfile = open("spellslots.txt","a")
+    spellfile.truncate(0)
 
-
+    match ch_class:
+        #2,3,4,7,8,9(arcane trickster),10,11,12
+        case 2: #bard
+            if level==1:
+                spellfile.write("Known cantrips: 2\nKnown spells: 4\n\n1st: 2")
+            elif level==2:
+                spellfile.write("Known cantrips: 2\nKnown spells: 5\n\n1st: 3")
+            elif level==3:
+                spellfile.write("Known cantrips: 2\nKnown spells: 6\n\n1st: 4\n2nd: 2")
+        case 3: #cleric
+            if level==1:
+                spellfile.write("Known cantrips: 3\n\n1st: 2")
+            elif level==2:
+                spellfile.write("Known cantrips: 3\n\n1st: 3")
+            elif level==3:
+                spellfile.write("Known cantrips: 3\n\n1st: 4\n2nd: 2")
+        case 4: #druid
+            if level==1:
+                spellfile.write("Known cantrips: 2\n\n1st: 2")
+            elif level==2:
+                spellfile.write("Known cantrips: 2\n\n1st: 3")
+            elif level==3:
+                spellfile.write("Known cantrips: 2\n\n1st: 4\n2nd:2")
+        case 7: #paladin
+            if level==1:
+                spellfile.write("Known cantrips: 0")
+            elif level==2:
+                spellfile.write("Known cantrips: 2")
+            elif level==3:
+                spellfile.write("Known cantrips: 3")
+        case 8: #ranger
+            if level==1:
+                spellfile.write("Known spells: 0\n")
+            elif level==2:
+                spellfile.write("Known spells: 2\n\n1st: 2\n")
+            elif level==3:
+                spellfile.write("Known spells: 3\n\n1st: 3\n")
+        case 9: #rogue (arcane trickster only)
+            if arcaneTrickster:
+                spellfile.write("Known cantrips: Mage Hand +2\nKnown spells: 3\n\n1st: 2")
+        case 10: #sorcerer
+            if level==1:
+                spellfile.write("Known cantrips: 4\nKnown spells: 2\n\n1st: 2")
+            elif level==2:
+                spellfile.write("Known cantrips: 4\nKnown spells: 3\n\n1st: 3")
+            elif level==3:
+                spellfile.write("Known cantrips: 4\nKnown spells: 4\n\n1st: 4\n2nd: 2\n")
+        case 11: #warlock
+            if level==1:
+                spellfile.write("Known cantrips: 2\nKnown spells: 2\n\nSpell slots: 1\nSlot level: 1st\nInvocations known: 0\n")
+            elif level==2:
+                spellfile.write("Known cantrips: 2\nKnown spells: 3\n\nSpell slots: 2\nSlot level: 1st\nInvocations known: 2\n")
+            elif level==3:
+                spellfile.write("Known cantrips: 2\nKnown spells: 4\n\nSpell slots: 2\nSlot level: 2nd\nInvocations known: 2\n")
+        case 12: #wizard
+            if level==1:
+                spellfile.write("Known cantrips: 3\n\n1st: 2\n")
+            elif level==2:
+                spellfile.write("Known cantrips: 3\n\n1st: 3\n")
+            elif level==3:
+                spellfile.write("Known cantrips: 3\n\n1st: 4\n2nd: 2\n")
+        
+    spellfile.close()
+    with open("spellslots.txt","r") as x:
+        spellsblock = x.read().rstrip()
 
 
 
@@ -1936,6 +2009,7 @@ def main():
     sheet.write(bigbar)
 
     #spellcasting
+    sheet.write(spellsblock)
     sheet.write(bigbar)
 
     #additional features
