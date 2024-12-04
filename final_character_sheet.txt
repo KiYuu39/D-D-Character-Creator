@@ -1,44 +1,35 @@
 Character name: Bob
-Level: 3
-Class: rogue
-Subclass: Assassin (roguish archetype)
-Race: Rock Gnome
-Background: Soldier
+Level: 2
+Class: bard
+Subclass: none (bard college)
+Race: Stout Halfling
+Background: Entertainer
 -----------------------------------------------------------------------------------------------------
-HP: 15
-Base AC: 12
+HP: 19
+Base AC: 15
 Speed: 25
 Size: small
-Initiative: +2
+Initiative: +5
 -----------------------------------------------------------------------------------------------------
-STR: 14		|DEX: 16		|CON: 8		|INT: 15		|WIS: 13		|CHA: 7
+STR: 13		|DEX: 12		|CON: 17		|INT: 16		|WIS: 15		|CHA: 12
 -----------------------------------------------------------------------------------------------------
 [ ] Strength: +1
-[x] Dexterity: +4
-[ ] Constitution: -1
-[x] Intelligence: +4
-[ ] Wisdom: +1
-[ ] Charisma: -2
-[ ] Acrobatics: +2
-[ ] Animal Handling: [ ] Arcana: +2
-[x] Athletics: +3
-[x] Deception: [ ] History: +2
-[x] Insight: [x] Intimidation: [ ] Investigation: +2
-[ ] Medicine: [ ] Nature: +2
-[ ] Perception: [ ] Performance: [ ] Persuasion: [ ] Religion: +2
-[x] Sleight of Hand: +4
-[x] Stealth: +4
-[ ] Survival:-----------------------------------------------------------------------------------------------------
+[x] Dexterity: +7
+[x] Constitution: +5
+[ ] Intelligence: +2
+[ ] Wisdom: +2
+[ ] Charisma: +5
 -----------------------------------------------------------------------------------------------------
-Expertise
-Sneak attack
-Thieves' cant
-Cunning action
-Darkvision 60ft
-Gnome cunning
-Languages: Common, gnomish
-Artificer's lore
-Tinker (clockwork toy, fire starter, music box)
+-----------------------------------------------------------------------------------------------------
+Bardic die (amount: 2, d6)
+Jack of all trades
+Song of rest (d6)
+Lucky
+Brave
+Nimble
+Languages: Common, halfling
+Stout resilience
 Armor proficiencies: light armor
 Weapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords
-Tools: thieves' toolsAdditional tool proficiencies: gaming set, land vehicles
+Tools: three musical instruments of choice
+Additional tool proficiencies: disguise kit, one additional musical instrument

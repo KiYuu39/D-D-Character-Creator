@@ -1,4 +1,3 @@
-Expertise
-Sneak attack
-Thieves' cant
-Cunning action
+Bardic die (amount: 2, d6)
+Jack of all trades
+Song of rest (d6)

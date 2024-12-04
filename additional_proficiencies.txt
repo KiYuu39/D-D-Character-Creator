@@ -1,3 +1,4 @@
 Armor proficiencies: light armor
 Weapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords
-Tools: thieves' toolsAdditional tool proficiencies: gaming set, land vehicles
+Tools: three musical instruments of choice
+Additional tool proficiencies: disguise kit, one additional musical instrument

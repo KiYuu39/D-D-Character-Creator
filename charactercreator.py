@@ -1075,10 +1075,7 @@ def titlePrint():
 
 
 def main():
-    '''test = Fighter()
-    test.setValues()
-    test.printValues()'''
-
+    #6 main stats
     stats = [0,0,0,0,0,0]
     stats = rollStats()
     print(stats)
@@ -1086,20 +1083,18 @@ def main():
     level = 0
 
     #default proficiency values
-    #proficient = [False,False,False,False,False,False]
     savethrows = [False,False,False,False,False,False]
     proflist = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]
 
-    #input for class; based on class certain stats will change
-    #similar for race
-
     titlePrint()
 
-    #get basic info
+    #get name======================================================================================================================
     print("Please note: if provided a numbered list, please enter corresponding number.\n")
     name = input("Enter character name: ")
+    
+    #get background======================================================================================================================
     print("Backgrounds: ")
-    print("\t1. Acolyte\n\t2. Charlatan\n\t3. Criminal\n\t4. Spy\n\t5. Entertainer\n\t6. Folk hero\n\t7. Gladiator\n\t8. Guild artisan\n\t9. Guild merchant\n\t-10. Hermit\n\t11. Knight\n\t12. Noble\n\t13. Outlander\n\t14. Pirate\n\t15. Sage\n\t16. Sailor\n\t17. Soldier\n\t18.Urchin")
+    print("\t1. Acolyte\n\t2. Charlatan\n\t3. Criminal\n\t4. Spy\n\t5. Entertainer\n\t6. Folk hero\n\t7. Gladiator\n\t8. Guild artisan\n\t9. Guild merchant\n\t10. Hermit\n\t11. Knight\n\t12. Noble\n\t13. Outlander\n\t14. Pirate\n\t15. Sage\n\t16. Sailor\n\t17. Soldier\n\t18.Urchin")
     bkg = 0
     backgroundString = ""
     while bkg<1 or bkg>18:
@@ -1144,18 +1139,13 @@ def main():
             case 18:
                 backgroundString = "Urchin"
     
-    
-
-
-
-    #get class & text blocks for name info and feature info; add class proficiencies
+    #get class, subclass, class features======================================================================================================================
     valid = False
-    nameblock = ""
-    featuresblock = ""
-    num = 0 #num is class type number
-    ch_class = 0
+    nameblock = ""      #basic info block that goes with character name
+    featuresblock = ""  #block of class-related features (added to end of character sheet with other features)
+    num = 0             #temporary class type holder
+    ch_class = 0        #class type value
     
-    #class-related features outside of class class
     while not valid:
         print("Classes: ")
         print("\t1. Barbarian\n\t2. Bard\n\t3. Cleric\n\t4. Druid\n\t5. Fighter\n\t6. Monk\n\t7. Paladin\n\t8. Ranger\n\t9. Rogue\n\t10. Sorcerer\n\t11. Warlock\n\t12. Wizard")
@@ -1261,21 +1251,17 @@ def main():
             case _:
                 print("Please enter a valid number.\n")
 
-    #default HP/AC calculation
-    #get race (speed as well), inc. subrace as needed
-        #18 substats, make list of ints for the + or - buffs to substats
-
-
-    #open file for all race related features
+    #get race, race features======================================================================================================================
     racefile = open("race.txt","a")
     racefile.truncate(0)
     raceString=""
     raceblock=""
 
-    tag = "" #used for specific races
-    race = 0
+    tag = ""            #used for specific races
+    race = 0            #race type value
     size = "none"
     speed = 0
+
     print("Races: ")
     print("\t1. Dragonborn\n\t2. Dwarf\n\t3. Elf\n\t4. Gnome\n\t5. Half Elf\n\t6. Halfling\n\t7. Half Orc\n\t8. Human\n\t9. Tiefling")
     while race>9 or race<1:
@@ -1283,8 +1269,7 @@ def main():
         if race>9 or race<1:
             print("Please enter valid number.\n")
     
-    #switch case for all race stats
-    match race:
+    match race: #get/calculate all race-related stats & proficiencies
         case 1: #dragonborn
             ancestry = 0
             stats[0]+=2
@@ -1450,87 +1435,87 @@ def main():
     with open("race.txt","r") as x:
         raceblock = x.read().rstrip()
     
-    #proficiencies
+    #proficiencies======================================================================================================================
     proffile = open("additional_proficiencies.txt","a")
     proffile.truncate(0)
 
-    #saving throw/skill proficiencies per race
-    if ch_class==1: #barbarian
-        savethrows[0]=True
-        savethrows[2]=True
-        proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
-        proflist[7]=True
-        proflist[17]=True
-    elif ch_class==2: #bard
-        savethrows[1]=True
-        savethrows[2]=True
-        proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: three musical instruments of choice\n")
-        proflist[12]==True
-        proflist[13]==True
-        proflist[0]==True
-    elif ch_class==3: #cleric
-        savethrows[4]=True
-        savethrows[5]=True
-        proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: all simple weapons\n")
-        proflist[9]=True
-        proflist[14]=True
-    elif ch_class==4: #druid
-        savethrows[3]=True
-        savethrows[4]=True
-        proffile.write("Armor proficiencies: light armor, medium armor, shields (nothing made of metal for armor and shields)\nWeapon proficiencies: clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears\nTools: herbalism kit\n")
-        proflist[1]=True
-        proflist[10]=True
-    elif ch_class==5: #fighter
-        savethrows[0]=True
-        savethrows[2]=True
-        proffile.write("Armor proficiencies: all armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
-        proflist[3]=True
-        proflist[17]=True
-    elif ch_class==6: #monk
-        savethrows[0]=True
-        savethrows[1]=True
-        proffile.write("Weapon proficiencies: simple weapons, shortswords\nTool proficiencies: A musical instrument\n")
-        proflist[0]=True
-        proflist[7]=True
-    elif ch_class==7: #paladin
-        savethrows[4]=True
-        savethrows[5]=True
-        proffile.write("Armor proficiencies: all armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
-        proflist[6]=True
-        proflist[14]=True
-    elif ch_class==8: #ranger
-        savethrows[0]=True
-        savethrows[1]=True
-        proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
-        proflist[1]=True
-        proflist[8]=True
-        proflist[10]=True
-    elif ch_class==9: #rogue
-        savethrows[1]=True
-        savethrows[3]=True
-        proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: thieves' tools")
-        proflist[4]=True
-        proflist[6]=True
-        proflist[15]=True
-        proflist[16]=True
-    elif ch_class==10: #sorcerer
-        savethrows[2]=True
-        savethrows[5]=True
-        proffile.write("Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows\n")
-        proflist[2]=True
-        proflist[14]=True
-    elif ch_class==11: #warlock
-        savethrows[4]=True
-        savethrows[5]=True
-        proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons\n")
-        proflist[5]=True
-        proflist[14]=True
-    else: #wizard
-        savethrows[3]=True
-        savethrows[4]=True
-        proffile.write("Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows\n")
-        proflist[2]=True
-        proflist[5]=True
+    match ch_class: #saving throw/skill proficiencies per race
+        case 1: #barbarian
+            savethrows[0]=True
+            savethrows[2]=True
+            proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+            proflist[7]=True
+            proflist[17]=True
+        case 2: #bard
+            savethrows[1]=True
+            savethrows[2]=True
+            proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: three musical instruments of choice\n")
+            proflist[12]==True
+            proflist[13]==True
+            proflist[0]==True
+        case 3: #cleric
+            savethrows[4]=True
+            savethrows[5]=True
+            proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: all simple weapons\n")
+            proflist[9]=True
+            proflist[14]=True
+        case 4: #druid
+            savethrows[3]=True
+            savethrows[4]=True
+            proffile.write("Armor proficiencies: light armor, medium armor, shields (nothing made of metal for armor and shields)\nWeapon proficiencies: clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears\nTools: herbalism kit\n")
+            proflist[1]=True
+            proflist[10]=True
+        case 5: #fighter
+            savethrows[0]=True
+            savethrows[2]=True
+            proffile.write("Armor proficiencies: all armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+            proflist[3]=True
+            proflist[17]=True
+        case 6: #monk
+            savethrows[0]=True
+            savethrows[1]=True
+            proffile.write("Weapon proficiencies: simple weapons, shortswords\nTool proficiencies: A musical instrument\n")
+            proflist[0]=True
+            proflist[7]=True
+        case 7: #paladin
+            savethrows[4]=True
+            savethrows[5]=True
+            proffile.write("Armor proficiencies: all armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+            proflist[6]=True
+            proflist[14]=True
+        case 8: #ranger
+            savethrows[0]=True
+            savethrows[1]=True
+            proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+            proflist[1]=True
+            proflist[8]=True
+            proflist[10]=True
+        case 9: #rogue
+            savethrows[1]=True
+            savethrows[3]=True
+            proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: thieves' tools")
+            proflist[4]=True
+            proflist[6]=True
+            proflist[15]=True
+            proflist[16]=True
+        case 10: #sorcerer
+            savethrows[2]=True
+            savethrows[5]=True
+            proffile.write("Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows\n")
+            proflist[2]=True
+            proflist[14]=True
+        case 11: #warlock
+            savethrows[4]=True
+            savethrows[5]=True
+            proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons\n")
+            proflist[5]=True
+            proflist[14]=True
+        case 12: #wizard
+            savethrows[3]=True
+            savethrows[4]=True
+            proffile.write("Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows\n")
+            proflist[2]=True
+            proflist[5]=True
 
     if tag=="orc":
         proflist[7]==True
@@ -1830,7 +1815,7 @@ def main():
     sheet.write(f"Base AC: {ac}\n")
 
     #initiative
-    sheet.write(f"Speed: {speed}\n")
+    sheet.write(f"Speed: {speed} ft\n")
     sheet.write(f"Size: {size}\n")
     sheet.write("Initiative: ")
     sheet.write("{0:+}".format(convertedstats[1]))
