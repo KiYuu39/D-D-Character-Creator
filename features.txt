@@ -1,5 +1,4 @@
-Bardic die (amount: 2, d6)
-Jack of all trades
-Song of rest (d6)
-Bard college (subclass): College of Valor
 Expertise
+Sneak attack
+Thieves' cant
+Cunning action

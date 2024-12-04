@@ -1364,6 +1364,36 @@ def main():
     #spellcasting
 
 
+
+
+
+    #STR DEX CON INT WIS CHA
+    #stats conversion to +/-
+    convertedstats = [0,0,0,0,0,0]
+    for i in range(6):
+        if stats[i]==3:
+            convertedstats[i] = -4
+        elif stats[i]==4 or stats[i]==5:
+            convertedstats[i] = -3
+        elif stats[i]==7 or stats[i]==7:
+            convertedstats[i] = -2
+        elif stats[i]==8 or stats[i]==9:
+            convertedstats[i] = -1
+        elif stats[i]==13 or stats[i]==14:
+            convertedstats[i] = 1
+        elif stats[i]==15 or stats[i]==16:
+            convertedstats[i] = 2
+        elif stats[i]==17 or stats[i]==18:
+            convertedstats[i] = 3
+        elif stats[i]==19:
+            convertedstats[i] = 4
+        else:
+            convertedstats[i]=5
+            
+
+
+
+
     #put everything in a file
     bigbar = "-----------------------------------------------------------------------------------------------------\n"
     sheet = open("final_character_sheet.txt","a")
@@ -1384,6 +1414,36 @@ def main():
     sheet.write(bigbar)
 
     #saving throws
+    temp = ""
+    savestring=""
+    for i in range(6):
+        if savethrows[i]==True:
+            box="[x]"
+            temp = 2+convertedstats[i]
+        else:
+            box="[ ]"
+            temp = convertedstats[i]
+        
+        match i:
+            case 0:
+                savestring=box+" Strength: "+"{0:+}".format(temp)+"\n"
+                sheet.write(savestring)
+            case 1:
+                savestring=box+" Dexterity: "+"{0:+}".format(temp)+"\n"
+                sheet.write(savestring)
+            case 2:
+                savestring=box+" Constitution: "+"{0:+}".format(temp)+"\n"
+                sheet.write(savestring)
+            case 3:
+                savestring=box+" Intelligence: "+"{0:+}".format(temp)+"\n"
+                sheet.write(savestring)
+            case 4:
+                savestring=box+" Wisdom: "+"{0:+}".format(temp)+"\n"
+                sheet.write(savestring)
+            case 5:
+                savestring=box+" Charisma: "+"{0:+}".format(temp)+"\n"
+                sheet.write(savestring)
+
 
     #ability checks
     sheet.write(bigbar)
