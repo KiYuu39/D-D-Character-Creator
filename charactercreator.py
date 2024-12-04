@@ -1411,25 +1411,71 @@ def main():
         proflist[13]==True
         proflist[0]==True
     elif ch_class==3: #cleric
-        print()
+        savethrows[4]=True
+        savethrows[5]=True
+        proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: all simple weapons\n")
+        proflist[9]=True
+        proflist[14]=True
     elif ch_class==4: #druid
-        print()
+        savethrows[3]=True
+        savethrows[4]=True
+        proffile.write("Armor proficiencies: light armor, medium armor, shields (nothing made of metal for armor and shields)\nWeapon proficiencies: clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears\nTools: herbalism kit\n")
+        proflist[1]=True
+        proflist[10]=True
     elif ch_class==5: #fighter
-        print()
+        savethrows[0]=True
+        savethrows[2]=True
+        proffile.write("Armor proficiencies: all armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+        proflist[3]=True
+        proflist[17]=True
     elif ch_class==6: #monk
-        print()
+        savethrows[0]=True
+        savethrows[1]=True
+        proffile.write("Weapon proficiencies: simple weapons, shortswords\nTool proficiencies: A musical instrument\n")
+        proflist[0]=True
+        proflist[7]=True
     elif ch_class==7: #paladin
-        print()
+        savethrows[4]=True
+        savethrows[5]=True
+        proffile.write("Armor proficiencies: all armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+        proflist[6]=True
+        proflist[14]=True
     elif ch_class==8: #ranger
-        print()
+        savethrows[0]=True
+        savethrows[1]=True
+        proffile.write("Armor proficiencies: light armor, medium armor, shields\nWeapon proficiencies: simple weapons, martial weapons\n")
+        proflist[1]=True
+        proflist[8]=True
+        proflist[10]=True
     elif ch_class==9: #rogue
-        print()
+        savethrows[1]=True
+        savethrows[3]=True
+        proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: thieves' tools")
+        proflist[4]=True
+        proflist[6]=True
+        proflist[15]=True
+        proflist[16]=True
     elif ch_class==10: #sorcerer
-        print()
+        savethrows[2]=True
+        savethrows[5]=True
+        proffile.write("Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows\n")
+        proflist[2]=True
+        proflist[14]=True
     elif ch_class==11: #warlock
-        print()
+        savethrows[4]=True
+        savethrows[5]=True
+        proffile.write("Armor proficiencies: light armor\nWeapon proficiencies: simple weapons\n")
+        proflist[5]=True
+        proflist[14]=True
     else: #wizard
-        print()
+        savethrows[3]=True
+        savethrows[4]=True
+        proffile.write("Weapon proficiencies: daggers, darts, slings, quarterstaffs, light crossbows\n")
+        proflist[2]=True
+        proflist[5]=True
+
+    if tag=="orc":
+        proflist[7]==True
 
     proffile.close()
 
@@ -1469,13 +1515,6 @@ def main():
     #HP calculation
     hp=0
     match ch_class:
-        case 0:
-            if level==1:
-                hp=8+convertedstats[2]
-            elif level==2:
-                hp=13+(2*convertedstats[2])
-            elif level==3:
-                hp=18+(3*convertedstats[2])
         case 1:
             if level==1:
                 hp=12+convertedstats[2]
@@ -1483,6 +1522,88 @@ def main():
                 hp=19+(2*convertedstats[2])
             elif level==3:
                 hp=26+(3*convertedstats[2])
+        case 2:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 3:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 4:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 5:
+            if level==1:
+                hp=10+convertedstats[2]
+            elif level==2:
+                hp=16+(2*convertedstats[2])
+            elif level==3:
+                hp=22+(3*convertedstats[2])
+        case 6:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 7:
+            if level==1:
+                hp=10+convertedstats[2]
+            elif level==2:
+                hp=16+(2*convertedstats[2])
+            elif level==3:
+                hp=22+(3*convertedstats[2])
+        case 8:
+            if level==1:
+                hp=10+convertedstats[2]
+            elif level==2:
+                hp=16+(2*convertedstats[2])
+            elif level==3:
+                hp=22+(3*convertedstats[2])
+        case 9:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 10:
+            if level==1:
+                hp=6+convertedstats[2]
+            elif level==2:
+                hp=10+(2*convertedstats[2])
+            elif level==3:
+                hp=14+(3*convertedstats[2])
+        case 11:
+            if level==1:
+                hp=8+convertedstats[2]
+            elif level==2:
+                hp=13+(2*convertedstats[2])
+            elif level==3:
+                hp=18+(3*convertedstats[2])
+        case 12:
+            if level==1:
+                hp=6+convertedstats[2]
+            elif level==2:
+                hp=10+(2*convertedstats[2])
+            elif level==3:
+                hp=14+(3*convertedstats[2])
+
+
+
+    if tag=="hill":
+        hp+=level
 
 
 
