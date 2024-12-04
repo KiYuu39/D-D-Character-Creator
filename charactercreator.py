@@ -1600,10 +1600,15 @@ def main():
             elif level==3:
                 hp=14+(3*convertedstats[2])
 
-
-
     if tag=="hill":
         hp+=level
+
+    raceblock=""
+    addfeatsblock=""
+    with open("race.txt","r") as file:
+        raceblock = file.read().rstrip()
+    with open("additional_proficiencies.txt","r") as file:
+        addfeatsblock = file.read().rstrip()
 
 
 
@@ -1674,7 +1679,8 @@ def main():
 
     #additional features
     sheet.write(f"{featuresblock}\n")
-        #also race features need to be written
+    sheet.write(f"{raceblock}\n")
+    sheet.write(f"{addfeatsblock}\n")
     
 
     sheet.close()
