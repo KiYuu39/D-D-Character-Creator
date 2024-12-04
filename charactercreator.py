@@ -1099,8 +1099,16 @@ def main():
     print("Please note: if provided a numbered list, please enter corresponding number.\n")
     name = input("Enter character name: ")
     print("Backgrounds: ")
-    print("\t- Acolyte\n\t- Charlatan\n\t- Criminal\n\t- Spy\n\t- Entertainer\n\t- Folk hero\n\t- Gladiator\n\t- Guild artisan\n\t- Guild merchant\n\t- Hermit\n\t- Knight\n\t- Noble\n\t- Outlander\n\t- Pirate\n\t- Sage\n\t- Sailor\n\t- Soldier\n\t- Urchin")
-    background = input("Enter background: ")
+    print("\t1. Acolyte\n\t2. Charlatan\n\t3. Criminal\n\t4. Spy\n\t5. Entertainer\n\t6. Folk hero\n\t7. Gladiator\n\t8. Guild artisan\n\t9. Guild merchant\n\t-10. Hermit\n\t11. Knight\n\t12. Noble\n\t13. Outlander\n\t14. Pirate\n\t15. Sage\n\t16. Sailor\n\t17. Soldier\n\t18.Urchin")
+    bkg = 0
+    while bkg<1 or bkg>18:
+        bkg = int(input("Enter background: "))
+        if bkg<1 or bkg>18:
+            print("Please enter valid number.\n")
+    
+    
+
+
 
     #get class & text blocks for name info and feature info; add class proficiencies
     valid = False
@@ -1219,6 +1227,13 @@ def main():
     #get race (speed as well), inc. subrace as needed
         #18 substats, make list of ints for the + or - buffs to substats
 
+
+    #file for all race related features
+    racefile = open("race.txt","a")
+    racefile.truncate(0)
+    raceString=""
+    raceblock=""
+
     tag = "" #used for specific races
     race = 0
     size = "none"
@@ -1229,17 +1244,7 @@ def main():
         race = int(input("Enter race: "))
         if race>9 or race<1:
             print("Please enter valid number.\n")
-
-    #main access variable initialization
-    speed = 0
-    size = ""
     
-    #file for all race related features
-    racefile = open("race.txt","a")
-    racefile.truncate(0)
-    raceString=""
-
-    #STR DEX CON INT WIS CHA
     #switch case for all race stats
     match race:
         case 1: #dragonborn
@@ -1326,7 +1331,7 @@ def main():
                     racefile.write("Elf weapon training\nMask of the wild\n")
                     speed = 35
                     raceString="Wood Elf"
-        #STR DEX CON INT WIS CHA
+        
         case 4: #gnome
             stats[3]+=2
             size = "small"
@@ -1387,7 +1392,6 @@ def main():
             racefile.write("Darkvision 60ft\nRestless endurance\nSavage attacks\nLanguages: Common, orc\m")
             tag = "orc"
             raceString="Half Orc"
-
         
         case 8: #human
             for i in range(6):
@@ -1404,12 +1408,10 @@ def main():
             racefile.write("Darkvision 60ft\nHellish resistance\nLanguages: Common, infernal\n")
             raceString="Tiefling"
 
-    racefile.close
-    raceblock=""
+    racefile.close()
     with open("race.txt","r") as x:
         raceblock = x.read().rstrip()
     
-
     #proficiencies
     proffile = open("additional_proficiencies.txt","a")
     proffile.truncate(0)
@@ -1495,12 +1497,74 @@ def main():
     if tag=="orc":
         proflist[7]==True
 
+    #background features: skill proficiencies
+    match bkg:
+        case 1:
+            proflist[6]=True
+            proflist[14]=True
+            proffile.write("Two additional languages known\nShelter of the Faithful\n")
+        case 2:
+            proflist[4]=True
+            proflist[15]=True
+            proffile.write("Additional tool proficiencies: disguise kit, forgery kit\n")
+        case 3 | 4:
+            proflist[4]=True
+            proflist[16]=True
+            proffile.write("Additional tool proficiencies: gaming set, thieves' tools\n")
+        case 5:
+            proflist[0]=True
+            proflist[12]=True
+            proffile.write("Additional tool proficiencies: disguise kit, one additional musical instrument\n")
+        case 6|7:
+            proflist[1]=True
+            proflist[17]=True
+            proffile.write("Additional tool proficiencies: artisan's tools, land vehicles\n")
+        case 8|9:
+            proflist[6]=True
+            proflist[13]=True
+            proffile.write("Additional tool proficiencies: artisan's tools\nAdditional languages: 1\n")
+        case 10:
+            proflist[9]=True
+            proflist[14]=True
+            proffile.write("Additional tool proficiencies: herbalism kit\nAdditional languages: 1\n")
+        case 11|12:
+            proflist[13]=True
+            proflist[5]=True
+            proffile.write("Additional tool proficiencies: gaming set\nAdditional languages: 1\n")
+        case 13:
+            proflist[3]=True
+            proflist[17]=True
+            proffile.write("Additional tool proficiencies: one additional musical instrument of choice\nAdditional languages: 1\n")
+        case 14|16:
+            #athletics, perception
+            #navigators tools, water vehicles
+            proflist[4]=True
+            proflist[11]=True
+            proffile.write("Additional tool proficiencies: navigator's tools, water vehicles\n")
+        case 15:
+            #arcana, history
+            #2 languages
+            proflist[2]=True
+            proflist[5]=True
+            proffile.write("Additional languages: 2\n")
+        case 17:
+            proflist[3]=True
+            proflist[7]=True
+            proffile.write("Additional tool proficiencies: gaming set, land vehicles\n")
+        case 18:
+            #sleight of hand, stealth
+            #disguise kit, thieves' tools
+            proflist[15]=True
+            proflist[16]=True
+            proffile.write("Additional tool proficiencies: thieves' tools\n")
+
     proffile.close()
     addfeatsblock=""
     with open("additional_proficiencies.txt","r") as x:
         addfeatsblock = x.read().rstrip()
 
-
+    #background features
+    
 
 
 

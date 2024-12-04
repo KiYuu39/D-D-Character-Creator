@@ -1,28 +1,28 @@
-Character name: 1
+Character name: a
 Level: 1
 Class: barbarian
 Subclass: none (primal path)
 Race: Human
-Background: 1
+Background: a
 -----------------------------------------------------------------------------------------------------
-HP: 13
-Base AC: 12
+HP: 14
+Base AC: 14
 Speed: 30
 Size: medium
-Initiative: +2
+Initiative: +4
 -----------------------------------------------------------------------------------------------------
-STR: 11		|DEX: 16		|CON: 13		|INT: 14		|WIS: 15		|CHA: 14
+STR: 15		|DEX: 19		|CON: 16		|INT: 18		|WIS: 11		|CHA: 12
 -----------------------------------------------------------------------------------------------------
-[x] Strength: +7
-[ ] Dexterity: +2
-[x] Constitution: +3
-[ ] Intelligence: +1
-[ ] Wisdom: +2
-[ ] Charisma: +1
+[x] Strength: +4
+[ ] Dexterity: +4
+[x] Constitution: +4
+[ ] Intelligence: +3
+[ ] Wisdom: +5
+[ ] Charisma: +5
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 Rage (rage count: 2)
 Unarmored Defense
-
+Languages: Common, additional language of choice
 Armor proficiencies: light armor, medium armor, shields
 Weapon proficiencies: simple weapons, martial weapons
