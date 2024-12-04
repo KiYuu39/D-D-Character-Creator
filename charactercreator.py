@@ -1520,7 +1520,7 @@ def main():
     if tag=="orc":
         proflist[7]==True
 
-    #background features: skill proficiencies
+    #background-related skill proficiencies & features======================================================================================================================
     match bkg:
         case 1:
             proflist[6]=True
@@ -1586,18 +1586,13 @@ def main():
     with open("additional_proficiencies.txt","r") as x:
         addfeatsblock = x.read().rstrip()
 
-    
-
-
-
-    #spellcasting
+    #spellcasting======================================================================================================================
 
 
 
 
 
-    #STR DEX CON INT WIS CHA
-    #stats conversion to +/-
+    #convert main 6 stats via stat table method======================================================================================================================
     convertedstats = [0,0,0,0,0,0]
     for i in range(6):
         if stats[i]==3:
@@ -1619,7 +1614,7 @@ def main():
         else:
             convertedstats[i] = 5
             
-    #HP calculation
+    #HP calculation======================================================================================================================
     hp=0
     match ch_class:
         case 1:
@@ -1710,12 +1705,12 @@ def main():
     if tag=="hill":
         hp+=level
 
-    #background features
+    #additional skills======================================================================================================================
     bkgfile = open("other_skills","a")
     bkgfile.truncate(0)
 
-    num = 0
-    box = ""
+    num = 0         #temporary number to hold skill bonus
+    box = ""        #proficient/non proficient checkbox string
     for i in range(18):
         num=0
         if proflist[i]==True:
@@ -1786,7 +1781,6 @@ def main():
             bkgfile.write("{0:+}".format(num))
             bkgfile.write("\n")
 
-
     bkgfile.close()
     bkgblock=""
     with open("other_skills.txt","r") as x:
@@ -1795,11 +1789,8 @@ def main():
     
     
 
-    
 
-
-
-    #put everything in a file
+    #put everything in a file======================================================================================================================
     bigbar = "-----------------------------------------------------------------------------------------------------\n"
     sheet = open("final_character_sheet.txt","a")
     sheet.truncate(0)
@@ -1823,13 +1814,13 @@ def main():
     
     sheet.write(bigbar)
 
-    #STR DEX CON INT WIS CHA
+    #6 main stats
     sheet.write(f"STR: {stats[0]}\t\t|DEX: {stats[1]}\t\t|CON: {stats[2]}\t\t|INT: {stats[3]}\t\t|WIS: {stats[4]}\t\t|CHA: {stats[5]}\n")
     sheet.write(bigbar)
 
     #saving throws
-    temp = ""
-    savestring=""
+    temp = ""       #temporary bonus number holder
+    savestring=""   #string to be written into file
     for i in range(6):
         if savethrows[i]==True:
             box="[x]"
@@ -1860,8 +1851,6 @@ def main():
 
     #additional proficiencies
     sheet.write(bkgblock)
-
-    #ability checks
     sheet.write(bigbar)
 
     #spellcasting
