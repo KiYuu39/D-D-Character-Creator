@@ -18,9 +18,9 @@ class Fighter(): #fighter class
         valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level == 3: #if level = 3, allow break loop & ask for archetype
+            if self.level == 3:                 #if level = 3, allow break loop & ask for archetype
                 valid = True
-                print("Archetypes: ") #aka subclass
+                print("Archetypes: ")           #subclass
                 print("\t1. Battle Master\n\t2. Champion\n\t3. Eldritch Knight")
                 while not valid_a:
                     num = input("Enter archetype: ")
@@ -40,35 +40,44 @@ class Fighter(): #fighter class
                 
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True
         
+        #fighter class has fighting styles
         count = self.numFightingStyles
+        num = 0
         while count>0:
-            answer = input(f"You have {count} fighting styles to choose. To get information on fighting styles, type Q. Otherwise, enter fighting style: ")
-            if answer == 'Q' or answer == 'q':
-                print("Fighting Styles:")
-                print("\t- archery\n\t- defense\n\t- dueling\n\t- great weapon fighting\n\t- protection\n\t- two-weapon fighting")
-                
-            else:
-                self.fightingStyle1 = answer
-                count-=1
-            
-            
-
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.numFightingStyles)
-        print(self.archetype)
+            print("Fighting Styles:")
+            print("\t1. archery\n\t2. defense\n\t3. dueling\n\t4. great weapon fighting\n\t5. protection\n\t6. two-weapon fighting")
+            while num<1 or num>6:
+                num=int(input("Enter fighting style: "))
+                match num:
+                    case 1:
+                        self.fightingStyle1="archery"
+                        count-=1
+                    case 2:
+                        self.fightingStyle1="defense"
+                        count-=1
+                    case 3:
+                        self.fightingStyle1="dueling"
+                        count-=1
+                    case 4:
+                        self.fightingStyle1="great weapon fighting"
+                        count-=1
+                    case 5:
+                        self.fightingStyle1="protection"
+                        count-=1
+                    case 6:
+                        self.fightingStyle1="two-weapon fighting"
+                        count-=1
+                    case _:
+                        print("Please enter valid number.\n")
 
     def fileInputLevelClassSubclass(self):
-        print("")
-        #level, class and subclass
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: fighter\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: fighter\n")
         levelfile.write(f"Subclass: {self.archetype} (archetype)\n")
         levelfile.close()
 
@@ -98,7 +107,6 @@ class Barbarian(): #barbarian class & outline DONE
         self.rageDamageBonus = rageDamageBonus
         self.rageCount = 2
         
-
         self.subclass = "none"
 
     def getLevel(self):
@@ -109,7 +117,7 @@ class Barbarian(): #barbarian class & outline DONE
         valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level == 3: #if level = 3, allow break loop & ask for subclass
+            if self.level == 3:                 #if level = 3, allow break loop & ask for subclass
                 valid = True
                 while not valid_a:
                     print("Primal paths: ") #aka subclass
@@ -125,22 +133,10 @@ class Barbarian(): #barbarian class & outline DONE
                         print("Enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True
-        
-        if self.level>=3 and self.level<6:  #ragecount adjust for lv3+
-            self.rageCount = 3
-            
-            
-
-    def printValues(self):
-        print(self.level)
-        print(self.proficiencyBonus)
-        print(self.numFightingStyles)
-        print(self.archetype)
 
     def fileInputLevelClassSubclass(self):
-        #level, class and subclass
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
@@ -153,14 +149,7 @@ class Barbarian(): #barbarian class & outline DONE
         return filestring
 
     def fileInputFeatures(self):
-        #print("")
-        #class features
-        #in this case, action surge (if any), class-specific abilities, etc.
-
         featuresfile = open("features.txt","a")
-        '''featuresfile.truncate(0)
-        featuresfile.write("test1")
-        featuresfile.write("test2")'''
         featuresfile.truncate(0)
         featuresfile.write(f"Rage (rage count: {self.rageCount})\nUnarmored Defense\n")
         if self.level>=2:
@@ -190,10 +179,10 @@ class Bard(): #bard class DONE
         valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level == 3: #if level = 3, allow break loop & ask for subclass
+            if self.level == 3:                 #if level = 3, allow break loop & ask for subclass
                 valid = True
                 while not valid_a:
-                    print("Bard college: ") #aka subclass
+                    print("Bard college: ")
                     print("\t1. Lore\n\t2. Valor")
                     num = input("Enter bard college: ")
                     if num == "1":
@@ -206,7 +195,7 @@ class Bard(): #bard class DONE
                         print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True
 
     def printValues(self):
@@ -258,10 +247,10 @@ class Cleric(): #cleric class DONE
         valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=1: #if level >=1, allow break loop & ask for subclass
+            if self.level >=1:                  #if level >=1, allow break loop & ask for subclass
                 valid = True
                 while not valid_a:
-                    print("Divine domains: ") #aka subclass
+                    print("Divine domains: ")
                     print("\t1. Knowledge\n\t2. Life\n\t3. Light\n\t4. Nature\n\t5. Tempest\n\t6. Trickery\n\t7. War")
                     num = input("Enter divine domain: ")
                     match num:
@@ -290,7 +279,7 @@ class Cleric(): #cleric class DONE
                             print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True
 
     def printValues(self):
@@ -337,10 +326,10 @@ class Druid(): #druid class DONE
         valid_a = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=2: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=2:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid_a:
-                    print("Druid circles: ") #aka subclass
+                    print("Druid circles: ")
                     print("\t1. Land\n\t2. Moon")
                     num = input("Enter druid circle: ")
                     if num=="1":
@@ -353,7 +342,7 @@ class Druid(): #druid class DONE
                         print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
             
     def printValues(self):
@@ -386,7 +375,6 @@ class Druid(): #druid class DONE
         return filestring
 
 class Monk(): #monk class DONE
-    #no armor/shield => AC is 10+DEX+WIS
     def __init__(self, level=1, proficiencyBonus=2):
         self.level = level
         self.proficiencyBonus = proficiencyBonus 
@@ -404,7 +392,7 @@ class Monk(): #monk class DONE
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level>1:
                 self.kiPoints=self.level
-            if self.level >=3: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=3:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid_a:
                     print("Monastic traditions: ") #aka subclass
@@ -423,7 +411,7 @@ class Monk(): #monk class DONE
                         print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
             
     def printValues(self):
@@ -475,10 +463,10 @@ class Paladin(): #paladin class DONE
         valid_b = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=2: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=2:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid_a:
-                    print("Fighting styles: ") #aka subclass
+                    print("Fighting styles: ")
                     print("\t1. Blessed warrior\n\t2. Blind fighting\n\t3. Defense\m\t4. Dueling\n\t5. Great weapon fighting\n\t6. Interception\n\t7. Protection")
                     num = input("Enter fighting style: ")
 
@@ -525,7 +513,7 @@ class Paladin(): #paladin class DONE
                         print("Please enter valid number.\n")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
             
     def printValues(self):
@@ -537,7 +525,7 @@ class Paladin(): #paladin class DONE
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: paladin\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: paladin\n")
         levelfile.write(f"Subclass: {self.subclass} (sacred oath)\n")
         levelfile.close()
 
@@ -579,10 +567,9 @@ class Ranger(): #finish switch cases
             self.level = int(input("Level: "))  #get level (must be 1-3)
             if self.level>=1:
                 valid = True
+                num=0
                 print("Favored enemy types:")
                 print("\t1. Aberrations\n\t2. Beasts\n\t3. Celestials\n\t4. Constructs\n\t5. Dragons\n\t6. Elementals\n\t7. Fey\n\t8. Fiends\n\t9. Giants\n\t10. Monstrosities\n\t11. Oozes\n\t12. Plants\n\t13. Undead\n")
-
-                num=0
                 while num<1 or num>13:
                     num = int(input("Enter favored enemy: "))
                     match num:
@@ -615,10 +602,9 @@ class Ranger(): #finish switch cases
                         case _:
                             print("Please enter valid number.\n")
 
+                num=0
                 print("Favored terrain types:")
                 print("\t1. Arctic\n\t2. Coast\n\t3. Desert\n\t4. Forest\n\t5. Grassland\n\t6. Mountain\n\t7. Swamp\n\t8. Underdark\n")
-                
-                num=0
                 while num<1 or num>8:
                     num = int(input("Enter favored terrain: "))
                     match num:
@@ -682,7 +668,7 @@ class Ranger(): #finish switch cases
                     
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
             
     def printValues(self):
@@ -736,10 +722,10 @@ class Rogue(): #rogue class DONE
         valid2 = False
         while not valid:
             self.level = int(input("Level: "))  #get level (must be 1-3)
-            if self.level >=3: #if level >= 2, allow break loop & ask for subclass
+            if self.level >=3:                  #if level >= 2, allow break loop & ask for subclass
                 valid = True
                 while not valid2:
-                    print("Roguish archetypes: ") #aka subclass
+                    print("Roguish archetypes: ")
                     print("\t1. Arcane trickster\n\t2. Assassin\n\t3. Thief")
                     num = input("Enter roguish archetype: ")
                     match num:
@@ -757,7 +743,7 @@ class Rogue(): #rogue class DONE
                             print("Please enter valid number.")
             elif self.level>3: #if level>3, loop again
                 print("Please enter a number 1-3.")
-            else: #allow break loop
+            else:              #allow break loop
                 valid = True        
             
     def printValues(self):
@@ -769,7 +755,7 @@ class Rogue(): #rogue class DONE
         levelfile = open("level.txt","a")
         levelfile.truncate(0)
         levelfile.write(f"Level: {self.level}\n")
-        levelfile.write(f"Class: rogue\n") #since classes are class-specific, just manual input here
+        levelfile.write(f"Class: rogue\n")
         levelfile.write(f"Subclass: {self.subclass} (roguish archetype)\n")
         levelfile.close()
 
@@ -1979,7 +1965,11 @@ def main():
     #maxHP
     sheet.write(f"HP: {hp}\n")
     #AC
-    ac = 10+convertedstats[1]
+    if ch_class==6: #monks have different AC calculation, assuming unarmored
+        ac=10+convertedstats[1]+convertedstats[4]
+        sheet.write("Unarmored ")
+    else:
+        ac = 10+convertedstats[1]
     sheet.write(f"Base AC: {ac}\n")
 
     #initiative
