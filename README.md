@@ -19,3 +19,4 @@ Due to the large amount of text files, I have included quick links for the most 
 - [project.py](https://github.com/KiYuu39/DnD-Character-Creator/blob/main/project.py) (classes)
 - [requirements.txt](https://github.com/KiYuu39/DnD-Character-Creator/blob/main/requirements.txt) (requirements file)
 - [final_character_sheet.txt](https://github.com/KiYuu39/DnD-Character-Creator/blob/main/final_character_sheet.txt) (final output file for program)
+- [proposal.md](https://github.com/KiYuu39/DnD-Character-Creator/blob/main/proposal.md) (project proposal)
